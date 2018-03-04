@@ -4,16 +4,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-        { path: '', redirectTo: 'welcome', pathMatch: 'full'},
+        { path: 'home', component: HomeComponent },
+        { path: '', redirectTo: 'home', pathMatch: 'full'},
         { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ]),
   ],
