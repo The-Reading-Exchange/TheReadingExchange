@@ -19,8 +19,9 @@ import { LibraryComponent } from './library/library.component';
     HttpClientModule,
     RouterModule.forRoot([
         { path: 'home', component: HomeComponent },
+        { path: 'library', component: LibraryComponent },
         { path: '', redirectTo: 'home', pathMatch: 'full'},
-        { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
+        { path: '**', redirectTo: 'home', pathMatch: 'full'}
     ]),
   ],
   bootstrap: [AppComponent]
