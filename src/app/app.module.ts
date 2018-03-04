@@ -6,13 +6,15 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LibraryComponent } from './library/library.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LibraryComponent
+    LibraryComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,7 @@ import { LibraryComponent } from './library/library.component';
     RouterModule.forRoot([
         { path: 'home', component: HomeComponent },
         { path: 'library', component: LibraryComponent },
+        { path: 'my-profile', component: MyProfileComponent},
         { path: '', redirectTo: 'home', pathMatch: 'full'},
         { path: '**', redirectTo: 'home', pathMatch: 'full'}
     ]),
