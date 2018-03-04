@@ -1,0 +1,2 @@
+# TheReadingExchange
+A book share app that allows users to post their books they have to lend out and other users to search through and borrow. With the growth of technology there's still a very real want for opening a book and reading page by page versus downloading a E-book to a tablet or audio book. We want to give people an avenue to share their books, reviews and continue their love of reading.
