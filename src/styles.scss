@@ -50,16 +50,16 @@
 // transitions  - end //
 
 
-title {
+a {
   color:red;
   height:30px;
   font-weight: 400;
   letter-spacing: 0.1em;
 }
-title:hover {
+a:hover {
   color: blue;
   font-weight: 800;
-  height:100px;
-  letter-spacing: 2em;
+  height:60px;
+  letter-spacing: 0.5em;
   @include transition(color 1s, letter-spacing 1s, font-weight 0.5s, height 0.5s ease-in-out);
 }
