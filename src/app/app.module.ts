@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LibraryComponent } from './library/library.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { LibraryDetailComponent } from './library/library-detail.component';
+
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
     AppComponent,
     HomeComponent,
     LibraryComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    LibraryDetailComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -23,6 +27,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
         { path: 'home', component: HomeComponent },
         { path: 'library', component: LibraryComponent },
         { path: 'my-profile', component: MyProfileComponent},
+        { path: 'library-detail', component: LibraryDetailComponent},
         { path: '', redirectTo: 'home', pathMatch: 'full'},
         { path: '**', redirectTo: 'home', pathMatch: 'full'}
     ]),
