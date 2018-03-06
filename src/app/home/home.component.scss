@@ -49,16 +49,15 @@
 // transitions  - end //
 
 
-.transition {
-  color:red;
-  height:30px;
+.a {
+  color:rgb(158, 92, 92);
   font-weight: 400;
   letter-spacing: 0.1em;
 }
-.transition:hover {
-  color: blue;
+.a:hover {
+  color: rgb(89, 89, 150);
   font-weight: 800;
-  height:100px;
+  // height:100px;
   letter-spacing: 2em;
   @include transition(color 1s, letter-spacing 1s, font-weight 0.5s, height 0.5s ease-in-out);
 }
