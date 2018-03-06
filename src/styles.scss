@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+
+// ADDING SASS and MIXIN CODES
+// Usage:   @include transition(width, height 0.3s ease-in-out);
+// Output:  -webkit-transition(width 0.2s, height 0.3s ease-in-out);
+//          transition(width 0.2s, height 0.3s ease-in-out);
+//
+// Pass in any number of transitions
+@mixin transition($transitions...) {
+  $unfoldedTransitions: ();
+  @each $transition in $transitions {
+    $unfoldedTransitions: append(
+      $unfoldedTransitions,
+      unfoldTransition($transition),
+      comma
+    );
+  }
+
+  -webkit-transition: $unfoldedTransitions;
+  transition: $unfoldedTransitions;
+}
+
+@function unfoldTransition($transition) {
+  // Default values
+  $property: all;
+  $duration: 0.5s;
+  $easing: null; // Browser default is ease, which is what we want
+  $delay: null; // Browser default is 0, which is what we want
+  $defaultProperties: (
+    $property,
+    $duration,
+    $easing,
+    $delay
+  );
+
+  // Grab transition properties if they exist
+  $unfoldedTransition: ();
+  @for $i from 1 through length($defaultProperties) {
+    $p: null;
+    @if $i <= length($transition) {
+      $p: nth($transition, $i);
+    } @else {
+      $p: nth($defaultProperties, $i);
+    }
+    $unfoldedTransition: append($unfoldedTransition, $p);
+  }
+
+  @return $unfoldedTransition;
+}
+// transitions  - end //
+
+
+title {
+  color:red;
+  height:30px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+title:hover {
+  color: blue;
+  font-weight: 800;
+  height:100px;
+  letter-spacing: 2em;
+  @include transition(color 1s, letter-spacing 1s, font-weight 0.5s, height 0.5s ease-in-out);
+}
