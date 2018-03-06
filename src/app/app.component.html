@@ -2,8 +2,13 @@
   <nav class='navbar navbar-default'>
       <div class='container-fluid'>
           <a class='navbar-brand'>{{pageTitle}}</a>
-          <ul class='nav navbar-nav'>
-              <li><a [routerLink]="['/welcome']">Home</a></li>
+            <ul id="nav-mobile" class="right library_Login">
+              <li>
+                  <a [routerLink]="['/library']">Library</a>
+                </li>
+                <li>
+                <a [routerLink]="['/']">Log-In</a>
+                </li>
           </ul>
       </div>
   </nav>
@@ -17,15 +22,9 @@
 <div>
     <nav class="footerWrapper">
         <div class="nav-wrapper">
-            <div class="brand-logo">{{pageTitle}}</div>
+            <div class="brand-logo"></div>
 
             <ul id="nav-mobile" class="right library_Login">
-                <li>
-                    <a href="">Library</a>
-                </li>
-                <li>
-                    <a href="">Log In</a>
-                </li>
             </ul>
         </div>
     </nav>
