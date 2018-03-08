@@ -22,12 +22,9 @@
       <li>
         <a [routerLink]="['/library']">Library</a>
       </li>
-      <li>
-        <a [routerLink]="['/profile']">Account</a>
-      </li>
-      <li>
-        <a [routerLink]="['/login']">Log-In</a>
-      </li>
+      <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></li>
+      <li *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></li>
+      <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></li>
     </ul>
   </div>
 </nav>
