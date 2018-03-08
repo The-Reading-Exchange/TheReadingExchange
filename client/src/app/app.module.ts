@@ -13,6 +13,7 @@ import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { LibraryComponent } from './library/library.component';
 import { LibraryDetailComponent } from './library/library-detail.component';
+import { SearchService } from './search.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
   providers: [
+    SearchService,
     AuthenticationService,
     AuthGuardService
   ],

@@ -11,4 +11,7 @@ export class AppComponent {
   pageTitle = 'The Reading Exchange';
 
   constructor(public auth: AuthenticationService) {}
+
 }
+
+
