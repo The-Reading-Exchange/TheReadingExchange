@@ -13,12 +13,15 @@ import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { LibraryComponent } from './library/library.component';
 import { LibraryDetailComponent } from './library/library-detail.component';
+import { AddBookComponent } from './profile/add-book.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'library', component: LibraryComponent },
   { path: 'library-detail', component: LibraryDetailComponent},
+  { path: 'profile', component: ProfileComponent },
+  { path: 'add-book', component: AddBookComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
@@ -33,6 +36,7 @@ const routes: Routes = [
     HomeComponent,
     LibraryDetailComponent,
     LibraryComponent,
+    AddBookComponent,
   ],
   imports: [
     BrowserModule,
