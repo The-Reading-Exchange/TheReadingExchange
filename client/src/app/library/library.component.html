@@ -3,75 +3,29 @@
   <div class="col s12 m3">
     <div class="card-panel white">
       <span class="black-text">
-        <form>
-          <div class="row">
-            <form class="col s3">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="titleTextField" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Title</label>
+                  <textarea name="titleTextField" ngModel class="materialize-textarea"></textarea>
+                  <label for="titleTextField">Title</label>
                 </div>
               </div>
-            </form>
-          </div>
 
-          <div class="row">
-            <form class="col s3">
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="authorTextField" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Author</label>
+                  <textarea name="authorTextField" ngModel class="materialize-textarea"></textarea>
+                  <label for="authorTextField">Author</label>
                 </div>
               </div>
-            </form>
-          </div>
 
-          <!-- <div class="row">
-            <form class="col s3">
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="genreTextField" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Genre</label>
+                  <textarea name="isbnTextField" ngModel class="materialize-textarea"></textarea>
+                  <label for="isbnTextField">ISBN</label>
                 </div>
               </div>
-            </form>
-          </div>
 
-          <div class="row">
-            <form class="col s3">
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="publisherTextField" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Publisher</label>
-                </div>
-              </div>
-            </form>
-          </div>
-
-          <div class="row">
-            <form class="col s3">
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="dateTextField" class="materialize-textarea"></textarea>
-                  <label for="textarea1">Publication Date</label>
-                </div>
-              </div>
-            </form>
-          </div> -->
-
-          <div class="row">
-            <form class="col s3">
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="isbnTextField" class="materialize-textarea"></textarea>
-                  <label for="textarea1">ISBN</label>
-                </div>
-              </div>
-            </form>
-          </div>
-
-          <button (click)="this.getBooks()" class="btn waves-effect waves-light" type="submit" name="action">Submit
-          </button>
+          <button class="btn waves-effect waves-light" type="submit">SubmiT</button>
         </form>
       </span>
     </div>
@@ -83,10 +37,16 @@
   <!-- Results -->
 
   <!-- <div class="row"> -->
-  <div class="col s12 m9">
+  <div *ngIf="books" class="col s12 m9">
     <div *ngFor="let book of books.items" class="card horizontal">
       <div class="card-image">
-        <img src={{book.volumeInfo.imageLinks.thumbnail}}>
+          <ng-container *ngIf="book.volumeInfo.imageLinks === undefined; then hasNoPic; else hasPic"></ng-container> 
+            <ng-template #hasPic>
+            <img src={{book.volumeInfo.imageLinks.thumbnail}}>
+            </ng-template>
+            <ng-template #hasNoPic>
+            <img src="../../assets/images/nocover.jpg">
+            </ng-template>      
       </div>
       <!-- <div class="card-stacked"> -->
         <div class="card-content">
