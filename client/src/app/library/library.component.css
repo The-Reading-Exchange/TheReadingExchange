@@ -12,7 +12,15 @@
 }
 .card-action{
     align: right;
+    /* width: 100px; */
 }
 .card-content{
     width: 800px;
 }
+.card-panel{
+    margin-left: 40px;
+}
+.card horizontal{
+   padding-right: 100px;
+}
+
