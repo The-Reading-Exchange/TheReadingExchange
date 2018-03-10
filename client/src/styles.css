@@ -2,3 +2,11 @@
 .card.horizontal{
   width: 96% !important;
 }
+p {
+    margin: 0;
+    color: inherit;
+    text-align: justify;
+    width: 100%;
+    position: relative;
+    left: 2%;
+}
