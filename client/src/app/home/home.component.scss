@@ -1,4 +1,3 @@
-
 // // ADDING SASS and MIXIN CODES
 // // Usage:   @include transition(width, height 0.3s ease-in-out);
 // // Output:  -webkit-transition(width 0.2s, height 0.3s ease-in-out);
@@ -64,3 +63,91 @@
 //   letter-spacing: 2em;
 //   @include transition(color 1s, letter-spacing 1s, font-weight 0.5s, height 0.5s ease-in-out);
 // }
+
+.slider {
+  padding: 0px 10px 10px 10px;
+}
+
+p {
+  text-align: center;
+}
+
+.card-panel {
+  padding: 10px 10px 10px 10px;
+}
+
+// // using keyframe animation
+
+// @keyframes slideInFromLeft {
+//   0% {
+//     transform: translateX(-100%);
+//   }
+//   100% {
+//     transform: translateX(0);
+//   }
+// }
+
+// .somethingAwesome {
+//    /* This section calls the slideInFromLeft animation we defined above */
+//   animation: 1s ease-out 0s 1 slideInFromLeft;
+
+//   padding: 10%;
+
+//   font-family: "Oswald", sans-serif;
+//   font-weight: 700;
+//   letter-spacing: 0.07em;
+//   transition: 5s;
+
+// }
+// .somethingAwesome:hover {
+//   color: $fontColor;
+//   letter-spacing: 1em;
+
+//   @include transition(letter-spacing 1s ease-out);
+// }
+
+// .menu-item {
+//   text-align: center;
+// }
+
+//start video styles
+
+.imageVideoScreenSettings {
+  height: 100%;
+  width: 1000px;
+  top: 5px;
+  left: 15%;
+  opacity: 0.5;
+}
+
+.vidBackground {
+  position: relative;
+  // top: 0;
+  // left: 0;
+  @extend .imageVideoScreenSettings;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url("https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Big_Buck_Bunny_4K.webm/Big_Buck_Bunny_4K.webm.480p.webmm")
+      center center / cover no-repeat;
+  }
+
+  .fullscreen-bg__video {
+    display: none;
+  }
+}
