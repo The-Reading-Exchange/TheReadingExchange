@@ -8,7 +8,12 @@ p{
 
 .card-panel{
     padding: 10px 10px 10px 10px;
+}
 
-
-
+.tempImage{
+    height: 500px;
+    width: 1411px;
+    align-content: center;
+    margin-top: 0%;
+    margin-left: 8px;
 }
