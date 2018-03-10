@@ -1,0 +1,18 @@
+#search-section{
+    margin-left: 20px;
+    
+}
+
+.input-field{
+    width: 100px;
+}
+
+.btn.waves-effect.waves-light{
+    align-content: center; 
+}
+.card-action{
+    align: right;
+}
+.card-content{
+    width: 800px;
+}
