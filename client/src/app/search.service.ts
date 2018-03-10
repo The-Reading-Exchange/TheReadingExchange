@@ -23,4 +23,8 @@ export class SearchService {
 
         return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=` + titleCall + authorCall + isbnCall);
     }
+
+    getBook(isbn) {
+        return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:` + isbn);
+    }
 }

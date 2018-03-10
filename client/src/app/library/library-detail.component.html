@@ -3,7 +3,13 @@
       <div class="row">
         <div class="col sm12 m6">
           <a href="https://placeholder.com">
-            <img src="http://via.placeholder.com/350x350">
+            <ng-container *ngIf="book.items[0].volumeInfo.imageLinks; then hasPic; else hasNoPic"></ng-container> 
+            <ng-template #hasPic>
+            <img src={{book.items[0].volumeInfo.imageLinks.thumbnail}}>
+            </ng-template>
+            <ng-template #hasNoPic>
+            <img src="../../assets/images/nocover.jpg">
+            </ng-template>  
           </a>
           <div class="row">
               <div class="col sm12 m6">
@@ -16,12 +22,12 @@
          
         </div>
         <div class="col sm12 m6">
-        <p>Title:</p>
-        <p>Author:</p>
-        <p>Summary:</p>
-        <p>Rating:</p>
-        <p>Genre:</p>
-        <p>ISBN:</p>
+        <p>Title: {{book.items[0].volumeInfo.title}}</p>
+        <p>Author: {{book.items[0].volumeInfo.authors}}</p>
+        <p>Summary: {{book.items[0].volumeInfo.description}}</p>
+        <p>Page Count: {{book.items[0].volumeInfo.pageCount}}</p>
+        <p>Published: {{book.items[0].volumeInfo.publishedDate}}</p>
+        <p>ISBN(s): {{bookIsbn}}</p>
 
         </div>
       </div>

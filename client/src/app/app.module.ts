@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'library', component: LibraryComponent },
-  { path: 'library-detail', component: LibraryDetailComponent},
+  { path: 'library-detail/:isbn',  component: LibraryDetailComponent},
   { path: 'profile', component: ProfileComponent },
   { path: 'add-book', component: AddBookComponent },
   { path: 'login', component: LoginComponent },
