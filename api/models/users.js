@@ -12,6 +12,9 @@ var userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  books: {
+    type: Array
+  },
   hash: String,
   salt: String
 });
