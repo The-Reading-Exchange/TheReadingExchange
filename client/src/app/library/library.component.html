@@ -55,7 +55,7 @@
           <p id="summary">Summary:  {{book.volumeInfo.description}}</p>
         </div>
         <div class="card-action">
-          <a [routerLink]="['/library-detail']">Book Details</a>
+          <a [routerLink]="['/library-detail/', book.volumeInfo.industryIdentifiers[1].identifier]">Book Details</a>
         </div>
       <!-- </div> -->
     </div>
