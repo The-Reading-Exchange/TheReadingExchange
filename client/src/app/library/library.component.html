@@ -1,29 +1,28 @@
-
 <div class="row">
   <div class="col s12 m3">
     <div class="card-panel white">
       <span class="black-text">
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea name="titleTextField" ngModel class="materialize-textarea"></textarea>
-                  <label for="titleTextField">Title</label>
-                </div>
-              </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea name="titleTextField" ngModel class="materialize-textarea"></textarea>
+              <label for="titleTextField">Title</label>
+            </div>
+          </div>
 
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea name="authorTextField" ngModel class="materialize-textarea"></textarea>
-                  <label for="authorTextField">Author</label>
-                </div>
-              </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea name="authorTextField" ngModel class="materialize-textarea"></textarea>
+              <label for="authorTextField">Author</label>
+            </div>
+          </div>
 
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea name="isbnTextField" ngModel class="materialize-textarea"></textarea>
-                  <label for="isbnTextField">ISBN</label>
-                </div>
-              </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea name="isbnTextField" ngModel class="materialize-textarea"></textarea>
+              <label for="isbnTextField">ISBN</label>
+            </div>
+          </div>
 
           <button class="btn waves-effect waves-light" type="submit">SubmiT</button>
         </form>
@@ -45,7 +44,7 @@
             <img src={{book.volumeInfo.imageLinks.thumbnail}}>
             </ng-template>
             <ng-template #hasNoPic>
-            <img src="../../assets/images/nocover.jpg">
+            <img src="../../assets/images/nocover.jpg" width="100px" height="200px">
             </ng-template>      
       </div>
       <!-- <div class="card-stacked"> -->
