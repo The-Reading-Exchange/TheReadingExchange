@@ -1,3 +1,17 @@
 h1{
     text-align: center;
 }
+
+.card-action{
+    text-align: center;
+}
+.card-title{
+    text-align: center;
+}
+.collapsible-header{
+    height: 60px;
+    font-size: 20px;
+}
+td{
+    height:60px;
+}
