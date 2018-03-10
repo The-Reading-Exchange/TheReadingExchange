@@ -1,6 +1,10 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
+import { map } from 'rxjs/operators/map';
+import { Router } from '@angular/router';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { catchError, retry } from 'rxjs/operators';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -9,7 +13,11 @@ const httpOptions = {
 @Injectable()
 export class SearchService {
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private router: Router) {}
+
+    handleError(error, otherthing) {
+        console.log(error);
+    }
 
     // Uses http.get() to load data from a single API endpoint
     getBooks(f) {
@@ -26,5 +34,19 @@ export class SearchService {
 
     getBook(isbn) {
         return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:` + isbn);
+    }
+
+/** POST: add a new hero to the database */
+    addBook (book) {
+        console.log(book, 'before service');
+        this.http.post('/api/add-book', book)
+        .subscribe(
+            res => {
+              console.log(res, 'after service');
+            },
+            err => {
+              console.log('Error occured');
+            }
+          );
     }
 }

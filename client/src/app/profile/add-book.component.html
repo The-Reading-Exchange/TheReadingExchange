@@ -1,13 +1,71 @@
 <h1>Add a book to exchange!</h1>
 <br><br>
 <div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s6 offset-m3">
-        <input placeholder="Title" id="titile" type="text" class="validate">
-        <label for="title">Title</label>
+    <div class="col s12 m3">
+      <div class="card-panel white">
+        <span class="black-text">
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea name="titleTextField" ngModel class="materialize-textarea"></textarea>
+                    <label for="titleTextField">Title</label>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea name="authorTextField" ngModel class="materialize-textarea"></textarea>
+                    <label for="authorTextField">Author</label>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea name="isbnTextField" ngModel class="materialize-textarea"></textarea>
+                    <label for="isbnTextField">ISBN</label>
+                  </div>
+                </div>
+  
+            <button class="btn waves-effect waves-light" type="submit">Submit</button>
+          </form>
+        </span>
       </div>
+    </div>
+  
+  
+  
+  
+    <!-- Results -->
+  
+    <!-- <div class="row"> -->
+    <div *ngIf="books" class="col s12 m9">
+      <div *ngFor="let book of books.items" class="card horizontal">
+        <div class="card-image">
+            <ng-container *ngIf="book.volumeInfo.imageLinks === undefined; then hasNoPic; else hasPic"></ng-container> 
+              <ng-template #hasPic>
+              <img src={{book.volumeInfo.imageLinks.thumbnail}}>
+              </ng-template>
+              <ng-template #hasNoPic>
+              <img src="../../assets/images/nocover.jpg">
+              </ng-template>      
+        </div>
+        <!-- <div class="card-stacked"> -->
+          <div class="card-content">
+            <p id="title">Title: {{book.volumeInfo.title}}</p>
+            <p id="author">Author: {{book.volumeInfo.authors}}</p>
+            <p id="summary">Summary:  {{book.volumeInfo.description}}</p>
+          </div>
+          <div class="card-action">
+            <a (click)='addBook(book.volumeInfo)'>Add book to my list</a>
+          </div>
+        <!-- </div> -->
       </div>
+    </div>
+    <!-- </div> -->
+  
+    <!-- closes row -->
+  </div>
+   </div>
       <div class="row">
       <div class="input-field col s6 offset-m3">
         <input placeholder="Author" id="author" type="text" class="validate">
