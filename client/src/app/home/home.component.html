@@ -16,6 +16,8 @@
   </ul>
 </div> -->
 
+
+
 <!-- temporary image here -->
 <!-- <div class="vidBackground"> -->
       <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/1IkY0_qONRk" frameborder="0" allow="autoplay; encrypted-media"
@@ -29,15 +31,27 @@
         </div>
       <!-- </div> -->
 <!-- </div> -->
-<br>
-<div class="row">
-  <div class="col s12 m12">
-    <div class="card-panel">
-      <span class="black-text">
-        <p>Welcome to <strong>The Reading Exchange!</strong></p> 
-        <p>This site allows you to exchange books you don't read anymore for books that are on your reading wish list!</p>
-      </span>
+
+<!-- stagger animation -->
+<div id="container" [@listAnimation]="items.length">
+
+  <div id="list" *ngFor="let item of items">
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="card-panel">
+          <span class="black-text">
+            <p>Welcome to
+              <strong>The Reading Exchange!</strong>
+            </p>
+            <p>This site allows you to exchange books you don't read anymore for books that are on your reading wish list!</p>
+          </span>
+        </div>
+      </div>
     </div>
+    <!-- {{ item }} -->
   </div>
+
 </div>
+<br>
+
 
