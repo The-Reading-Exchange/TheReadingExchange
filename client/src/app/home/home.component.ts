@@ -5,7 +5,9 @@ import {
   style,
   animate,
   transition,
-  keyframes
+  keyframes,
+  query,
+  stagger
 } from "@angular/animations";
 
 @Component({
@@ -13,48 +15,76 @@ import {
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
   animations: [
-    trigger("photoState", [
-      state(
-        "move",
-        style({
-          transform: "translateX(-100%)"
-        })
-      ),
-      state(
-        "enlarge",
-        style({
-          transform: "scale(1.5)"
-        })
-      ),
-      state(
-        "spin",
-        style({
-          transform: "rotateY(180deg) rotateZ(90deg)"
-        })
-      ),
-      transition(
-        "* => move",
-        animate(
-          "2000ms",
-          keyframes([
-            style({ transform: "translateX(0)    rotateY(0)", offset: 0 }),
-            style({
-              transform: "translateX(50%)  rotateY(90deg)",
-              offset: 0.33
-            }),
-            style({
-              transform: "translateY(-75%) rotateY(180deg)",
-              offset: 0.66
-            }),
-            style({ transform: "translateX(-100%)", offset: 1.0 })
-          ])
+    trigger("listAnimation", [
+      transition("* => *", [
+        query(":enter", style({ opacity: 0 }), { optional: true }),
+
+        query(
+          ":enter",
+          stagger("300ms", [
+            animate(
+              "1s ease-in",
+              keyframes([
+                style({
+                  opacity: 0,
+                  transform: "translateY(-75%)",
+                  offset: 0
+                }),
+                style({
+                  opacity: 0.5,
+                  transform: "translateY(35px)",
+                  offset: 0.3
+                }),
+                style({
+                  opacity: 1,
+                  transform: "translateY(0)",
+                  offset: 1.0
+                })
+              ])
+            )
+          ]),
+          { optional: true }
         )
-      )
+      ])
+    ]),
+
+    trigger("explainerAnim", [
+      transition("* => *", [
+        query(".col", style({ opacity: 0, transform: "translateX(-40px)" })),
+
+        query(
+          ".col",
+          stagger("500ms", [
+            animate(
+              "800ms 1.2s ease-out",
+              style({ opacity: 1, transform: "translateX(0)" })
+            )
+          ])
+        ),
+
+        query(".col", [animate(1000, style("*"))])
+      ])
     ])
   ]
 })
-export class HomeComponent implements OnInit {
-  constructor() {}
+export class HomeComponent {
+  photo = [];
+
+  constructor() {
+    this.photo = [
+      "../../assets/images/books1.jpeg",
+      "../../assets/images/books2.jpeg",
+      "../../assets/images/books3.jpeg"
+    ];
+  }
+
+  pushPhoto() {
+    this.photo.push("../../assets/images/books4.jpeg");
+  }
+
+  removePhoto() {
+    this.photo.pop();
+  }
 
   ngOnInit() {}
 }
