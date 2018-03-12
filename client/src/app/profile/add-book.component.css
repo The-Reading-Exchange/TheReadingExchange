@@ -1,3 +1,9 @@
 h1{
     text-align: center;
+    color: white;
+}
+
+.card-panel{
+    border-style: double;
+    border-width: 4px;
 }
