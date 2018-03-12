@@ -24,7 +24,7 @@
             </div>
           </div>
 
-          <button class="btn waves-effect waves-light" type="submit">SubmiT</button>
+          <button class="btn waves-effect waves-light" type="submit">Submit</button>
         </form>
       </span>
     </div>
@@ -49,9 +49,11 @@
       </div>
       <!-- <div class="card-stacked"> -->
         <div class="card-content">
-          <p id="title">Title: {{book.volumeInfo.title}}</p>
-          <p id="author">Author: {{book.volumeInfo.authors}}</p>
-          <p id="summary">Summary:  {{book.volumeInfo.description}}</p>
+          <p id="title"><strong class="header">Title:</strong> {{book.volumeInfo.title}}</p>
+          <br>
+          <p id="author"><strong class="header">Author:</strong> {{book.volumeInfo.authors}}</p>
+          <br>
+          <p id="summary"><strong class="header">Summary:</strong>  {{book.volumeInfo.description}}</p>
         </div>
         <div class="card-action">
           <a [routerLink]="['/library-detail/', book.volumeInfo.industryIdentifiers[1].identifier]">Book Details</a>
