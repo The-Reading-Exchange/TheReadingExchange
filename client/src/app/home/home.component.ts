@@ -23,20 +23,20 @@ import {
           ":enter",
           stagger("3000ms", [
             animate(
-              "3s ease-in",
+              "7s ease-in",
               keyframes([
                 style({
                   opacity: 0,
-                  transform: "translateY(-75%)",
+                  transform: "translateY(-30%)",
                   offset: 0
                 }),
                 style({
                   opacity: 0.5,
-                  transform: "translateY(35px)",
+                  transform: "translateY(30px)",
                   offset: 0.5
                 }),
                 style({
-                  opacity: 0,
+                  opacity: 0.3,
                   transform: "translateY(0)",
                   offset: 1
                 })
@@ -45,24 +45,6 @@ import {
           ]),
           { optional: true }
         )
-      ])
-    ]),
-
-    trigger("explainerAnim", [
-      transition("* => *", [
-        query(".col", style({ opacity: 0, transform: "translateX(-40px)" })),
-
-        query(
-          ".col",
-          stagger("500ms", [
-            animate(
-              "800ms 1.2s ease-out",
-              style({ opacity: 1, transform: "translateX(0)" })
-            )
-          ])
-        ),
-
-        query(".col", [animate(1000, style("*"))])
       ])
     ])
   ]

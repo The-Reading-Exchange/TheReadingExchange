@@ -1,4 +1,3 @@
-
 <!-- <div class="slider">
   <ul class="slides">
     <li>
@@ -18,21 +17,14 @@
 
 
 
-<!-- temporary image here -->
-<!-- <div class="vidBackground"> -->
-      <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/1IkY0_qONRk" frameborder="0" allow="autoplay; encrypted-media"
-        allowfullscreen></iframe> -->
-      <!-- <div class="homepage-hero-module"> -->
-        <div class="video-container">
-          <video autoplay loop class="fillWidth">
-            <source src="../../assets/images/Rest_and_Play.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-            <source src="../../assets/images/Rest_and_Play.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-          </video>
-        </div>
-      <!-- </div> -->
-<!-- </div> -->
 
-<!-- stagger animation -->
+<div class="video-container">
+  <video autoplay loop class="fillWidth">
+    <source src="../../assets/images/Rest_and_Play.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    <source src="../../assets/images/Rest_and_Play.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+  </video>
+</div>
+
 <div id="container" [@listAnimation]="items.length">
 
   <div id="list" *ngFor="let item of items">
@@ -48,10 +40,7 @@
         </div>
       </div>
     </div>
-    <!-- {{ item }} -->
   </div>
 
 </div>
 <br>
-
-

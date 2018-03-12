@@ -16,15 +16,15 @@
 <router-outlet></router-outlet> -->
 
 <nav class='navbar'>
-  <div class='container-fluid'>
-    <a class='navbar-brand'[routerLink]="['/']">{{pageTitle}}</a>
+  <div class='container-fluid' @headerAnimate>
+    <a class='navbar-brand headerAnim'[routerLink]="['/']">{{pageTitle}}</a>
     <ul id="nav-mobile" class="right library_Login">
       <li>
-        <a class="links" [routerLink]="['/library']">Library</a>
+        <a class="links headerAnim" [routerLink]="['/library']">Library</a>
       </li>
-      <li *ngIf="!auth.isLoggedIn()"><a class="links" routerLink="/login">Sign in</a></li>
-      <li *ngIf="auth.isLoggedIn()"><a class="links" routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></li>
-      <li *ngIf="auth.isLoggedIn()"><a class="links" (click)="auth.logout()">Logout</a></li>
+      <li *ngIf="!auth.isLoggedIn()"><a class="links headerAnim" routerLink="/login">Sign in</a></li>
+      <li *ngIf="auth.isLoggedIn()"><a class="links headerAnim" routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></li>
+      <li *ngIf="auth.isLoggedIn()"><a class="links headerAnim" (click)="auth.logout()">Logout</a></li>
     </ul>
   </div>
 </nav>
