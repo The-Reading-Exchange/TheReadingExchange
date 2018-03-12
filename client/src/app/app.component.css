@@ -6,6 +6,14 @@
     font-size: 27px;
 }
 
+.navbar{
+  background-color: #e57373;
+
+}
+body {
+  background-color: #fff9c4;
+}
+
 
  /* body {
    display: flex;
