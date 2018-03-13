@@ -9,26 +9,26 @@ import {
   stagger
 } from "@angular/animations";
 
-export let flipMotion = trigger("flip", [
+export let video = trigger("enterVideo", [
   transition("* => *", [
-    query(".flip", style({ opacity: 0 }), {
+    query(".enterVideo", style({ opacity: 0 }), {
       optional: true
     }),
 
     query(
-      ".flip",
+      ".enterVideo",
       stagger("1000ms", [
         animate(
-          "1s ease-in",
+          "2s ease-in",
           keyframes([
             style({
-              opacity: 0,
+              opacity: 1,
               transform: "translateX(75%)",
               offset: 0
             }),
             style({
               opacity: 0.5,
-              transform: "translateY(-20px)",
+              transform: "translateY(-10px)",
               offset: 0.5
             }),
             style({

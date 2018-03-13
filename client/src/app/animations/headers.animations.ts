@@ -19,7 +19,7 @@ export let easeInHeaders = trigger("headerAnimate", [
              ".headerAnim",
              stagger("1000ms", [
                animate(
-                 "2s ease-in",
+                 "3s ease-in",
                  keyframes([
                    style({
                      opacity: 0,

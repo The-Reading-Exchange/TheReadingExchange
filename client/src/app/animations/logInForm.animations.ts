@@ -9,31 +9,31 @@ import {
   stagger
 } from "@angular/animations";
 
-export let flipMotion = trigger("flip", [
+export let loginForm = trigger("enterLoginForm", [
   transition("* => *", [
-    query(".flip", style({ opacity: 0 }), {
+    query(".enterLoginForm", style({ opacity: 0 }), {
       optional: true
     }),
 
     query(
-      ".flip",
+      ".enterLoginForm",
       stagger("1000ms", [
         animate(
-          "1s ease-in",
+          "10s ease-in",
           keyframes([
             style({
               opacity: 0,
-              transform: "translateX(75%)",
+              transform: "translateX(-100%)", //where it starts easing in
               offset: 0
             }),
             style({
               opacity: 0.5,
-              transform: "translateY(-20px)",
+              transform: "translateY(-30px)", //adjust position
               offset: 0.5
             }),
             style({
               opacity: 1,
-              transform: "translateX(0)",
+              transform: "translateX(0)", //default position
               offset: 1
             })
           ])
