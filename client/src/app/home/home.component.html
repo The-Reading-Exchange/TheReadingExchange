@@ -1,27 +1,29 @@
+<div class="video-container" [@enterVideo]="items.length">
 
-<div class="video-container">
-  <video autoplay loop class="fillWidth">
-    <source src="../../assets/images/Rest_and_Play.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-    <source src="../../assets/images/Rocky_Beach.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-  </video>
+  <div id="list" class="enterVideo">
+    <video autoplay loop class="fillWidth enter">
+      <source src="../../assets/images/Rest_and_Play.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+      <source src="../../assets/images/Rocky_Beach.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+  </div>
 </div>
 
-<div id="container" [@listAnimation]="items.length">
+  <div id="container" [@listAnimation]="items.length">
 
-  <div id="list" *ngFor="let item of items">
-    <div class="row">
-      <div class="col s12 m12">
-        <div class="card-panel">
-          <span class="black-text">
-            <p>Welcome to
-              <strong>The Reading Exchange!</strong>
-            </p>
-            <p>This site allows you to exchange books you don't read anymore for books that are on your reading wish list!</p>
-          </span>
+    <div id="list" *ngFor="let item of items">
+      <div class="row">
+        <div class="col s12 m12">
+          <div class="card-panel">
+            <span class="black-text">
+              <p>Welcome to
+                <strong>The Reading Exchange!</strong>
+              </p>
+              <p>This site allows you to exchange books you don't read anymore for books that are on your reading wish list!</p>
+            </span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-</div>
-<br>
+  </div>
+  <br>

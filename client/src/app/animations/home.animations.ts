@@ -15,13 +15,13 @@ export let easeIn = trigger("listAnimation", [
 
     query(
       ":enter",
-      stagger("3000ms", [
+      stagger("1000ms", [
         animate(
-          "7s ease-in",
+          "5s ease-in",
           keyframes([
             style({
-              opacity: 0,
-              transform: "translateY(-30%)",
+              opacity: 0.3,
+              transform: "translateY(-100%)",
               offset: 0
             }),
             style({
@@ -30,7 +30,7 @@ export let easeIn = trigger("listAnimation", [
               offset: 0.5
             }),
             style({
-              opacity: 0.3,
+              opacity: 1,
               transform: "translateY(0)",
               offset: 1
             })

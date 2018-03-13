@@ -2,11 +2,15 @@ import { Component } from "@angular/core";
 import { AuthenticationService, TokenPayload } from "../authentication.service";
 import { Router } from "@angular/router";
 import { flipMotion } from "../animations/login.animations";
+import { loginForm } from "../animations/logInForm.animations";
 
 @Component({
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"],
-  animations: [flipMotion]
+  animations: [
+    flipMotion,
+    loginForm
+  ]
 })
 export class LoginComponent {
   credentials: TokenPayload = {
