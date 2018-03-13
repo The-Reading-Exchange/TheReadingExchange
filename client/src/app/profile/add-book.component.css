@@ -7,3 +7,17 @@ h1{
     border-style: double;
     border-width: 4px;
 }
+
+button{
+    background-color: #e57373;
+    margin-left: 275px;
+
+}
+
+.materialize-textarea {
+  font-size: 13px;
+}
+
+label {
+  font-size: 17px;
+}
