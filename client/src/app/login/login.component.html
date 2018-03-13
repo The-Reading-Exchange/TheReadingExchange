@@ -1,24 +1,41 @@
 <div class="container">
 
   <div class="row">
-    
     <div class="col-md-6">
 
       <h1 class="form-signin-heading">Sign in</h1>
-      <p class="lead">Not a member? Please <a routerLink="/register">register</a> instead.</p>
-  
-      <form (submit)="login()">
-        <div class="form-group">
+      <p class="lead">Not a member? Please
+        <a routerLink="/register">register</a> instead.</p>
+
+      <form (submit)="login()" @enterLoginForm>
+        <div class="form-group enterLoginForm">
           <label for="email">Email address</label>
           <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
         </div>
-        <div class="form-group">
+        <div class="form-group enterLoginForm">
           <label for="password">Password</label>
           <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password">
         </div>
         <button type="submit" class="btn btn-default">Sign in!</button>
       </form>
 
+      <br>
+
+    </div>
+    <div class="col-md-6" [@flip]>
+      <img class="flip" id="one" src="../assets/images/booXchange.jpg">
+      <img class="flip" id="two" src="../assets/images/goodBook.jpg">
+    </div>
+  </div>
+
+  <!-- new row -->
+
+  <div class="row">
+    <div class="col-md-12" [@flip]="">
+      <img class="flip" id="six" src="../assets/images/dreamBook.jpg">
+      <img class="flip" id="three" src="../assets/images/quoteBook.jpg">
+      <img class="flip" id="four" src="../assets/images/loveBooks.jpg">
+      <img class="flip" id="five" src="../assets/images/bookTree.jpg">
     </div>
   </div>
 
