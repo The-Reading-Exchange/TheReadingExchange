@@ -7,7 +7,7 @@
       <p class="lead enterLoginForm">Not a member? Please
         <a class="enterLoginForm" routerLink="/register">register</a> instead.</p>
 
-      <form (submit)="login()" @enterLoginForm>
+      <form (submit)="login()" >
         <div class="form-group enterLoginForm">
           <label for="email">Email address</label>
           <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
@@ -22,7 +22,7 @@
       <br>
 
     </div>
-    <div class="col-md-6" [@flip]>
+    <div [@flip]>
       <img class="flip" id="one" src="../assets/images/booXchange.jpg">
       <img class="flip" id="two" src="../assets/images/quoteBook.jpg">
     </div>
