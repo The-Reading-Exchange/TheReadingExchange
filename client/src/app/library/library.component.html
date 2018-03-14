@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col s12 m3">
-    <div class="card-panel white">
+    <div class="card-panel blue-grey lighten-5">
       <span class="black-text">
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
           <div class="row">
@@ -37,7 +37,7 @@
 
   <!-- <div class="row"> -->
   <div *ngIf="books" class="col s12 m9">
-    <div *ngFor="let book of books.items" class="card horizontal">
+    <div *ngFor="let book of books.items" class="card horizontal blue-grey lighten-5">
       <div class="card-image">
           <ng-container *ngIf="book.volumeInfo.imageLinks === undefined; then hasNoPic; else hasPic"></ng-container> 
             <ng-template #hasPic>
