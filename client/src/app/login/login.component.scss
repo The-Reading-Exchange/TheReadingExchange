@@ -5,6 +5,7 @@
 
 .imageSize {
   position: relative;
+  display: block;
   // display: ;
   width: 17em;
   height: 25em;
@@ -17,12 +18,12 @@
 }
 #one {
   @extend .imageSize;
-  left: -38%;
+  left: 41em;
   top: 0%;
 }
 #two {
-  left: 65%;
-  top: 0em;
+  left: 6%;
+  top: -25em;
 
   @extend .imageSize;
 }

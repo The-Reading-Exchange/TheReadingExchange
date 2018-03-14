@@ -19,7 +19,7 @@ export let flipMotion = trigger("flip", [
       ".flip",
       stagger("1000ms", [
         animate(
-          "1s ease-in",
+          "3s ease-in",
           keyframes([
             style({
               opacity: 0,
