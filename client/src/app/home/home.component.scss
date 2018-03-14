@@ -133,13 +133,18 @@ p {
   }
 }
 
+
 .welcome {
+
   padding: 0;
-  opacity: 1;
   position: relative;
   top: 1em;
   font-size: 40px;
   height: 0em;
+  opacity: 1;
+  // @if height = 0em { opacity: 1;  }
+  // @if height = 1em { opacity: 0; }
+
 }
 
 .imageVideoScreenSettings {

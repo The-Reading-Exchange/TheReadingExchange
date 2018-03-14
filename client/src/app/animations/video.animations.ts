@@ -17,9 +17,9 @@ export let video = trigger("enterVideo", [
 
     query(
       ".enterVideo",
-      stagger("1000ms", [
+      stagger("10000ms", [
         animate(
-          "2s ease-in",
+          "7s ease-in",
           keyframes([
             style({
               opacity: 1,
