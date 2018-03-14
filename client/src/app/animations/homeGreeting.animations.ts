@@ -9,25 +9,25 @@ import {
   stagger
 } from "@angular/animations";
 
-export let loginForm = trigger("enterLoginForm", [
+export let greeting = trigger("greet", [
   transition("* => *", [
-    query(".enterLoginForm", style({ opacity: 0 }), {
+    query(".greetWords", style({ opacity: 0 }), {
       optional: true
     }),
 
     query(
-      ".enterLoginForm",
-      stagger("200ms", [
+      ".greetWords",
+      stagger("350ms", [
         animate(
-          "1s ease-in",
+          "3s ease-in",
           keyframes([
             style({
-              opacity: 0,
+              opacity: 1,
               transform: "translateY(-100%)", //where it starts easing in
               offset: 0
             }),
             style({
-              opacity: 0.5,
+              opacity: 1,
               transform: "translateY(-30px)", //adjust position
               offset: 0.5
             }),

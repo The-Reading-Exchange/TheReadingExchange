@@ -111,21 +111,35 @@ p {
 
 .card-panel {
   padding: 14px;
-  margin: -27% 0% 0% 0%;
+  margin: -20% 0% 0% 0%;
   border-radius: 30px;
   width: 100%;
-  background-color: lightblue
+  background-color: hsla(185, 25%, 31%, 0.69) !important;
+  top: -21em;
+  position: relative;
 }
+
 
 #container {
   padding: 9em;
-  opacity: 1;
+  opacity: 0.7;
+  position: relative;
+  top: -5em;
 
   #list {
     // padding:1em;
     display: block;
     // margin-bottom:10px;
   }
+}
+
+.welcome {
+  padding: 0;
+  opacity: 1;
+  position: relative;
+  top: 1em;
+  font-size: 40px;
+  height: 0em;
 }
 
 .imageVideoScreenSettings {
@@ -143,17 +157,17 @@ video {
   width: 90%;
   height: 100%;
   position: relative;
-  -webkit-transform: translate(-50%, 3%);
+  -webkit-transform: translate(-50%, -28%);
   z-index: 0;
   opacity: 0.7;
 }
 
-div.video-container {
-  position: relative;
-  margin-bottom: -85px;
-  height: 100%;
-  padding: 0%;
-}
+// div.video-container {
+//   position: relative;
+//   margin-bottom: -85px;
+//   height: 100%;
+//   padding: 0%;
+// }
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
   .card-panel {
     padding: 14px;
@@ -197,7 +211,7 @@ div.video-container {
     height: 100%;
     position: relative;
     -webkit-transform: translate(-50%, 3%);
-    opacity:  0.5;
+    opacity: 0.5;
     z-index: 0;
   }
   #container {

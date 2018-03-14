@@ -1,26 +1,32 @@
-
 .col-md-12 {
-    width: 100%;
-    left: -15em;
+  width: 100%;
+  left: -15em;
 }
 
 .imageSize {
   position: relative;
   // display: ;
-  height: 350px;
-  width: 273px;
+  width: 17em;
+  height: 25em;
+}
+
+#loginForm {
+  @extend .imageSize;
+  // width: 50%;
+  left: 39%;
 }
 #one {
   @extend .imageSize;
-  left: 7%;
+  left: -38%;
   top: 0%;
 }
 #two {
-  left: 66%;
-  top: -25em;
+  left: 65%;
+  top: 0em;
+
   @extend .imageSize;
 }
-#three{
+#three {
   margin-left: -5em;
   // left: 2%;
   left: 24em;
