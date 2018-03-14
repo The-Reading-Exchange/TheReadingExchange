@@ -12,6 +12,7 @@
 
 .card-action{
     align: right;
+    border-radius: 15px;
 }
 
 .card-content{
@@ -54,3 +55,7 @@ img{
     padding-top: 28px;
     padding-bottom: 10px;
 }
+
+
+  
+

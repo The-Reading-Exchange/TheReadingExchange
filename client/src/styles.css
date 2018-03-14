@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 .card.horizontal {
   width: 96% !important;
+  border-radius: 15px;
+
 }
 p {
   margin: 0;
