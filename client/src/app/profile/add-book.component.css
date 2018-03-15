@@ -21,3 +21,45 @@ button{
 label {
   font-size: 17px;
 }
+
+
+
+
+.card horizontal {
+  padding-right: 100px;
+}
+
+.materialize-textarea {
+  font-size: 13px;
+}
+
+label {
+  font-size: 17px;
+}
+
+.header {
+  font-size: 15px;
+}
+
+button {
+  margin-left: 80px;
+  background-color: #e57373;
+}
+
+a {
+  color: #e57373;
+}
+
+img {
+  padding-left: 10px;
+  padding-top: 28px;
+  padding-bottom: 10px;
+}
+.card-action {
+  align: right;
+  border-radius: 15px;
+}
+
+.card-content {
+  width: 800px;
+}

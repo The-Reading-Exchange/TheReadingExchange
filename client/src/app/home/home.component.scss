@@ -1,109 +1,3 @@
-// // ADDING SASS and MIXIN CODES
-// // Usage:   @include transition(width, height 0.3s ease-in-out);
-// // Output:  -webkit-transition(width 0.2s, height 0.3s ease-in-out);
-// //          transition(width 0.2s, height 0.3s ease-in-out);
-// //
-// // Pass in any number of transitions
-// @mixin transition($transitions...) {
-//   $unfoldedTransitions: ();
-//   @each $transition in $transitions {
-//     $unfoldedTransitions: append(
-//       $unfoldedTransitions,
-//       unfoldTransition($transition),
-//       comma
-//     );
-//   }
-
-//   -webkit-transition: $unfoldedTransitions;
-//   transition: $unfoldedTransitions;
-// }
-
-// @function unfoldTransition($transition) {
-//   // Default values
-//   $property: all;
-//   $duration: 0.5s;
-//   $easing: null; // Browser default is ease, which is what we want
-//   $delay: null; // Browser default is 0, which is what we want
-//   $defaultProperties: (
-//     $property,
-//     $duration,
-//     $easing,
-//     $delay
-//   );
-
-//   // Grab transition properties if they exist
-//   $unfoldedTransition: ();
-//   @for $i from 1 through length($defaultProperties) {
-//     $p: null;
-//     @if $i <= length($transition) {
-//       $p: nth($transition, $i);
-//     } @else {
-//       $p: nth($defaultProperties, $i);
-//     }
-//     $unfoldedTransition: append($unfoldedTransition, $p);
-//   }
-
-//   @return $unfoldedTransition;
-// }
-// // transitions  - end //
-
-// img {
-//   display: inline-block;
-//   position: relative;
-// }
-// .a {
-//   color:rgb(158, 92, 92);
-//   font-weight: 400;
-//   letter-spacing: 0.1em;
-// }
-// .a:hover {
-//   color: rgb(89, 89, 150);
-//   font-weight: 800;
-//   // height:100px;
-//   letter-spacing: 2em;
-//   @include transition(color 1s, letter-spacing 1s, font-weight 0.5s, height 0.5s ease-in-out);
-// }
-
-// // using keyframe animation
-
-// @keyframes slideInFromLeft {
-//   0% {
-//     transform: translateX(-100%);
-//   }
-//   100% {
-//     transform: translateX(0);
-//   }
-// }
-
-// .somethingAwesome {
-//    /* This section calls the slideInFromLeft animation we defined above */
-//   animation: 1s ease-out 0s 1 slideInFromLeft;
-
-//   padding: 10%;
-
-//   font-family: "Oswald", sans-serif;
-//   font-weight: 700;
-//   letter-spacing: 0.07em;
-//   transition: 5s;
-
-// }
-// .somethingAwesome:hover {
-//   color: $fontColor;
-//   letter-spacing: 1em;
-
-//   @include transition(letter-spacing 1s ease-out);
-// }
-
-// .menu-item {
-//   text-align: center;
-// }
-
-//start video styles
-
-// .slider {
-//   padding: 0px 10px 10px 10px;
-// }
-
 p {
   text-align: center;
   color: white;
@@ -116,43 +10,30 @@ p {
   width: 100%;
   background-color: hsla(185, 25%, 31%, 0.69) !important;
   top: -21em;
-  position: relative;
+  // position: relative;
 }
 
 
 #container {
   padding: 9em;
-  opacity: 0.7;
   position: relative;
-  top: -5em;
-
-  #list {
-    // padding:1em;
-    display: block;
-    // margin-bottom:10px;
-  }
+  top: -10em;
 }
 
 
 .welcome {
-
   padding: 0;
   position: relative;
   top: 1em;
   font-size: 40px;
   height: 0em;
   opacity: 1;
-  // @if height = 0em { opacity: 1;  }
-  // @if height = 1em { opacity: 0; }
-
 }
 
 .imageVideoScreenSettings {
   height: auto;
   width: auto;
   top: 5px;
-  /* left: -1%; */
-  // opacity: 0.5;
 }
 
 video {
@@ -164,7 +45,7 @@ video {
   position: relative;
   -webkit-transform: translate(-50%, -28%);
   z-index: 0;
-  opacity: 0.7;
+  opacity: 0.80;
 }
 
 // div.video-container {

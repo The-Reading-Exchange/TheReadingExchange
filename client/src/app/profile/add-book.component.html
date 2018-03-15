@@ -39,26 +39,35 @@
   <!-- Results -->
 
   <!-- <div class="row"> -->
-  <div *ngIf="books" class="col s12 m9">
-    <div *ngFor="let book of books.items" class="card horizontal">
+  <div *ngIf="books" class="col s12 m8 offset-m2">
+    <div *ngFor="let book of books.items" class="card horizontal blue-grey lighten-5">
       <div class="card-image">
         <ng-container *ngIf="book.volumeInfo.imageLinks === undefined; then hasNoPic; else hasPic"></ng-container>
         <ng-template #hasPic>
           <img src={{book.volumeInfo.imageLinks.thumbnail}}>
         </ng-template>
         <ng-template #hasNoPic>
-          <img src="../../assets/images/nocover.jpg">
+          <img src="../../assets/images/nocover.jpg" width="100px" height="200px">
         </ng-template>
       </div>
       <!-- <div class="card-stacked"> -->
       <div class="card-content">
-        <p id="title">Title: {{book.volumeInfo.title}}</p>
-        <p id="author">Author: {{book.volumeInfo.authors}}</p>
-        <p id="summary">Summary: {{book.volumeInfo.description}}</p>
+        <p id="title">
+          <strong class="header">Title:</strong> {{book.volumeInfo.title}}</p>
+        <br>
+        <p id="author">
+          <strong class="header">Author:</strong> {{book.volumeInfo.authors}}</p>
+        <br>
+        <p id="summary">
+          <strong class="header">Summary:</strong> {{book.volumeInfo.description}}</p>
       </div>
       <div class="card-action">
-        <a (click)='addBook(book.volumeInfo)'>Add book to my list</a>
+        <a [routerLink]="['/library-detail/', book.volumeInfo.industryIdentifiers[1].identifier]">Add book to <br>my list</a>
       </div>
       <!-- </div> -->
     </div>
+  </div>
+  <!-- </div> -->
+  
+  <!-- closes row -->
   </div>
