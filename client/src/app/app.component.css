@@ -4,6 +4,7 @@
 
 .navbar-brand{
     font-size: 27px;
+    padding-top: 17px;
 }
 
 .navbar{
@@ -18,7 +19,7 @@ video{
  /* opacity: 0.7; */
   background-image: url("/assets/images/BlueParticles.mp4") center center / cover
     no-repeat;
-  opacity: 1;
+  /* opacity: 1; */
   position: fixed;
   top: 0;
   right: 0;
