@@ -5,6 +5,8 @@
 .navbar-brand{
     font-size: 27px;
     padding-top: 17px;
+    text-shadow: 2px 2px 4px #000000;
+
 }
 
 .navbar{
