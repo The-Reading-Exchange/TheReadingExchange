@@ -189,6 +189,11 @@
     </li>
   </ul>
   </div>
+  <div *ngIf="profileBooks">
+    <div *ngFor="let book of profileBooks">
+      <p>{{book.title}}</p>
+    </div>
+  </div>
 
 <script>
    $(document).ready(function(){ $('.collapsible').collapsible(); });
