@@ -13,6 +13,8 @@ var ctrlBook = require('../controllers/savebook');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
+router.get('/getprofilebooks/:id', ctrlProfile.getProfileBooks);
+
 
 // authentication
 router.post('/register', ctrlAuth.register);
