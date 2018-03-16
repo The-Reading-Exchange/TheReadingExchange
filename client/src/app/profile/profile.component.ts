@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
     this.searchService.getUserBooks(user)
     .subscribe(
       res => {
-        this.profileBooks = res.books;
+        this.profileBooks = res;
         console.log(this.profileBooks, 'we are done');
       },
       err => {

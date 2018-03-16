@@ -189,8 +189,8 @@
     </li>
   </ul>
   </div>
-  <div *ngIf="profileBooks">
-    <div *ngFor="let book of profileBooks">
+  <div *ngIf="profileBooks.books">
+    <div *ngFor="let book of profileBooks.books">
       <p>{{book.title}}</p>
     </div>
   </div>
