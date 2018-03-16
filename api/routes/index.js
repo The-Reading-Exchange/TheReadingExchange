@@ -8,12 +8,13 @@ var auth = jwt({
 
 var ctrlProfile = require('../controllers/profile');
 var ctrlAuth = require('../controllers/authentication');
-var ctrlBook = require('../controllers/savebook');
+var ctrlBooks = require('../controllers/bookstuff');
 
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
 router.get('/getprofilebooks/:id', ctrlProfile.getProfileBooks);
+router.get('/getlenders/:isbn', ctrlBooks.getLenders);
 
 
 // authentication
@@ -21,7 +22,7 @@ router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
 //other stuff
-router.post('/add-book', ctrlBook.saveBook);
+router.post('/add-book', ctrlBooks.saveBook);
 
 
 module.exports = router;

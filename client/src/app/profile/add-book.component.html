@@ -62,7 +62,7 @@
           <strong class="header">Summary:</strong> {{book.volumeInfo.description}}</p>
       </div>
       <div class="card-action">
-        <a [routerLink]="['/library-detail/', book.volumeInfo.industryIdentifiers[1].identifier]">Add book to <br>my list</a>
+        <a (click)='addBook(book.volumeInfo.industryIdentifiers[1].identifier)'>Add book to <br>my list</a>
       </div>
       <!-- </div> -->
     </div>

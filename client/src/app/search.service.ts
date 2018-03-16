@@ -54,4 +54,9 @@ export class SearchService {
         const userid = String(user._id);
         return this.http.get(`api/getprofilebooks/${userid}`);
     }
+
+    findLenders(isbn) {
+        console.log(isbn, 'in the service');
+        return this.http.get(`api/getlenders/${isbn}`);
+    }
 }

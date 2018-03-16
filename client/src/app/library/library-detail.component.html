@@ -19,7 +19,7 @@
           <div class="row">
               <div class="col sm12 m9">
                 <br>
-                  <a class="waves-effect waves-light btn-large">Exchange!</a>
+                  <a (click)='findLenders(bookIsbn)' class="waves-effect waves-light btn-large">Exchange!</a>
               </div>
           </div>
          
@@ -42,3 +42,8 @@
 </div>
 </div>
 
+<div *ngIf="lenders">
+  <div *ngFor="let lenderdetails of lenders">
+    <h1>{{lenderdetails.name}}</h1>
+  </div>
+</div>
