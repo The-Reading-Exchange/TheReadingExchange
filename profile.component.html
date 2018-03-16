@@ -1,0 +1,203 @@
+<div class="container">
+    <h1>Welcome, {{ details?.name }}!</h1>
+
+<br>
+<div class="row">
+  <div class="col s12 m4 offset-m4">
+    <div class="card red lighten-2">
+      <div class="card-content white-text">
+        <span class="card-title">Add a book to exchange!</span>
+      </div>
+      <div class="card-action">
+        <a [routerLink]="['/add-book']">Add New Book</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <br>
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header" ng-click="myFunc()">
+        Pending Requests</div>
+      <div class="collapsible-body">
+        <span>
+          <table class="bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Requested By</th>
+                <th>Date Requested</th>
+                <th>Accept</th>
+              </tr>
+            </thead>
+  
+            <tbody>
+              <tr>
+                <td>Number</td>
+                <td>String</td>
+                <td>String</td>
+                <td>String</td>
+                <td>Date</td>
+                <td>
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Accept</button>
+  
+                </td>
+              </tr>
+              <tr>
+                <td>Number</td>
+                <td>String</td>
+                <td>String</td>
+                <td>String</td>
+                <td>Date</td>
+                <td>
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Accept</button>
+  
+                </td>
+              </tr>
+              <tr>
+                <td>Number</td>
+                <td>String</td>
+                <td>String</td>
+                <td>String</td>
+                <td>Date</td>
+                <td>
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Accept</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+  
+        </span>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header">
+        Books Borrowed</div>
+      <div class="collapsible-body">
+        <span>
+          <table class="bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Requested</th>
+                <th>Accepted</th>
+                <th>Shipped to Reader</th>
+                <th>Due Date</th>
+                <th>Shipped to Lender</th>
+  
+              </tr>
+            </thead>
+  
+            <tbody>
+              <tr>
+                <td>Number</td>
+                <td>String</td>
+                <td>String</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+              </tr>
+              <tr>
+                <td>Number</td>
+                <td>String</td>
+                <td>String</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+              </tr>
+              <tr>
+                <td>Number</td>
+                <td>String</td>
+                <td>String</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+              </tr>
+            </tbody>
+          </table>
+  
+        </span>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header">
+        Books Lent</div>
+      <div class="collapsible-body">
+        <span>
+          <table class="bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Requested</th>
+                <th>Accepted</th>
+                <th>Shipped to Reader</th>
+                <th>Due Date</th>
+                <th>Shipped to Lender</th>
+  
+              </tr>
+            </thead>
+  
+            <tbody>
+              <tr>
+                <td>Number</td>
+                <td>String</td>
+                <td>String</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+              </tr>
+              <tr>
+                <td>Number</td>
+                <td>String</td>
+                <td>String</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+              </tr>
+              <tr>
+                <td>Number</td>
+                <td>String</td>
+                <td>String</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+                <td>Date</td>
+              </tr>
+            </tbody>
+          </table>
+  
+        </span>
+      </div>
+    </li>
+  </ul>
+  </div>
+  <div class="fakebutton">
+    <a (click)='getUserBooks(this.details)'>TRY TO CALL</a>
+  </div>
+  <div *ngIf="profileBooks">
+    <div *ngFor="let book of profileBooks">
+      <p>{{book.title}}</p>
+    </div>
+  </div>
+
+<script>
+   $(document).ready(function(){ $('.collapsible').collapsible(); });
+</script>
