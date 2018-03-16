@@ -49,4 +49,9 @@ export class SearchService {
             }
           );
     }
+
+    getUserBooks(user) {
+        const userid = String(user._id);
+        return this.http.get(`api/getprofilebooks/${userid}`);
+    }
 }
