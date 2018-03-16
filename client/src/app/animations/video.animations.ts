@@ -19,7 +19,7 @@ export let video = trigger("enterVideo", [
       ".enterVideo",
       stagger("10000ms", [
         animate(
-          "7s ease-in",
+          "3s ease-in",
           keyframes([
             style({
               opacity: 1,
