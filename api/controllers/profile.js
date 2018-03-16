@@ -16,3 +16,13 @@ module.exports.profileRead = function(req, res) {
   }
 
 };
+
+module.exports.getProfileBooks = function(req, res) {
+  let id = String(req.params.id);
+  User
+  .findOne({_id: req.params.id})
+  .exec(function(err, user) {
+    res.status(200).json(user);
+  });
+
+};
