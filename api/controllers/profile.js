@@ -10,6 +10,7 @@ module.exports.profileRead = function(req, res) {
   } else {
     User
       .findById(req.payload._id)
+      .populate('deal')
       .exec(function(err, user) {
         res.status(200).json(user);
       });
@@ -21,6 +22,7 @@ module.exports.getProfileBooks = function(req, res) {
   let id = String(req.params.id);
   User
   .findOne({_id: req.params.id})
+  .populate('deals')
   .exec(function(err, user) {
     res.status(200).json(user);
   });

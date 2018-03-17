@@ -18,23 +18,22 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.auth.profile().subscribe(user => {
       this.details = user;
-      this.getUserBooks(this.details);
     }, (err) => {
       console.error(err);
     });
   }
 
-  getUserBooks(user) {
-    console.log('starting the call from init');
-    this.searchService.getUserBooks(user)
-    .subscribe(
-      res => {
-        this.profileBooks = res;
-        console.log(this.profileBooks, 'we are done');
-      },
-      err => {
-        console.log('Error occured');
-      }
-    );
-  }
-}
+//   getUserBooks(user) {
+//     console.log('starting the call from init');
+//     this.searchService.getUserBooks(user)
+//     .subscribe(
+//       res => {
+//         this.profileBooks = res;
+//         console.log(this.profileBooks, 'we are done');
+//       },
+//       err => {
+//         console.log('Error occured');
+//       }
+//     );
+//   }
+// }
