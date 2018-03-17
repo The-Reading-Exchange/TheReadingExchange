@@ -2,6 +2,7 @@
   width: 97% !important;
 } */
 
+<<<<<<< HEAD
 h1,
 h4 {
   color: #519ebb;
@@ -42,3 +43,15 @@ h4 {
   left: 7em;
   width: 26em;
 }
+=======
+h1 {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.card {
+    height: auto;
+    border-radius: 15px;
+}
+>>>>>>> 32b7aed691739429eeb16ed884e67dee393893a1

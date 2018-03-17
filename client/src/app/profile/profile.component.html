@@ -19,54 +19,44 @@
   <ul class="collapsible popout" data-collapsible="accordion">
     <li>
       <div class="collapsible-header" ng-click="myFunc()">
-        Pending Requests</div>
+        My Books</div>
       <div class="collapsible-body">
         <span>
           <table class="bordered">
             <thead>
               <tr>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>Title</th>
                 <th>Author</th>
-                <th>Requested By</th>
+                <th>Status</th>
                 <th>Date Requested</th>
                 <th>Accept</th>
               </tr>
             </thead>
   
-            <tbody>
-              <tr>
-                <td>Number</td>
-                <td>String</td>
-                <td>String</td>
-                <td>String</td>
-                <td>Date</td>
+            <tbody *ngIf="details.books">
+              <tr *ngFor="let book of details.books">
+                <!-- <td>{{bookIsbn}}</td> -->
+                <td>
+                  <div>
+                  <div>
+                    <p>{{book.title}}</p>
+                  </div>
+                </div></td>
+                <td>
+                  <div>
+                    <div>
+                      <p>{{book.authors}}</p>
+                    </div>
+                  </div>
+                </td>
+                <td>Status</td>
+                <td>Date Requested</td>
                 <td>
                   <button class="btn waves-effect waves-light" type="submit" name="action">Accept</button>
   
                 </td>
-              </tr>
-              <tr>
-                <td>Number</td>
-                <td>String</td>
-                <td>String</td>
-                <td>String</td>
-                <td>Date</td>
-                <td>
-                  <button class="btn waves-effect waves-light" type="submit" name="action">Accept</button>
-  
-                </td>
-              </tr>
-              <tr>
-                <td>Number</td>
-                <td>String</td>
-                <td>String</td>
-                <td>String</td>
-                <td>Date</td>
-                <td>
-                  <button class="btn waves-effect waves-light" type="submit" name="action">Accept</button>
-                </td>
-              </tr>
+              </tr> 
             </tbody>
           </table>
   
@@ -188,11 +178,6 @@
       </div>
     </li>
   </ul>
-  </div>
-  <div *ngIf="details.books">
-    <div *ngFor="let book of details.books">
-      <p>{{book.title}}</p>
-    </div>
   </div>
 
 <script>
