@@ -44,6 +44,6 @@
 
 <div *ngIf="lenders">
   <div *ngFor="let lenderdetails of lenders">
-    <h1>{{lenderdetails.name}}</h1>
+    <h1 (click)="startDeal(lenderdetails.email, bookIsbn, details.email)">{{lenderdetails.name}}</h1>
   </div>
 </div>

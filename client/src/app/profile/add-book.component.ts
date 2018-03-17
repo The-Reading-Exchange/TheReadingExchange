@@ -26,7 +26,6 @@ export class AddBookComponent {
 
   addBook(bookInfo) {
     this.searchService.addBook({email: this.email, book: bookInfo});
-    console.log('clicked showing from add-book component');
   }
 }
 

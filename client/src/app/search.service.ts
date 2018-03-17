@@ -56,7 +56,12 @@ export class SearchService {
     }
 
     findLenders(isbn) {
-        console.log(isbn, 'in the service');
         return this.http.get(`api/getlenders/${isbn}`);
+    }
+
+    startDeal(emailToDB, isbnToDB, borrowerEmail) {
+        // tslint:disable-next-line:prefer-const
+        let dealInfo = {'lenderEmail': emailToDB, 'isbn': isbnToDB, 'borrowerEmail': borrowerEmail, 'status': 'RequestedToBorrow'};
+        return this.http.post(`/api/startdeal`, dealInfo);
     }
 }

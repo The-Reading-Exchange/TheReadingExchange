@@ -23,6 +23,7 @@ router.post('/login', ctrlAuth.login);
 
 //other stuff
 router.post('/add-book', ctrlBooks.saveBook);
+router.post('/startdeal', ctrlBooks.startDeal);
 
 
 module.exports = router;
