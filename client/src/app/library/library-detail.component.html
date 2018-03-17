@@ -3,47 +3,78 @@
 <div class="row">
   <div class="col sm12 m6 offset-m3">
 
-<div class="card blue-grey lighten-5">
-  <div class="card-content">
-      <div class="row">
-        <div class="col sm12 m3">
-          <a href="https://placeholder.com">
-            <ng-container *ngIf="book.items[0].volumeInfo.imageLinks; then hasPic; else hasNoPic"></ng-container> 
-            <ng-template #hasPic>
-            <img src={{book.items[0].volumeInfo.imageLinks.thumbnail}}>
-            </ng-template>
-            <ng-template #hasNoPic>
-            <img src="../../assets/images/nocover.jpg">
-            </ng-template>  
-          </a>
-          <div class="row">
+    <div class="card blue-grey lighten-5">
+      <div class="card-content">
+        <div class="row">
+          <div class="col sm12 m3">
+            <a href="https://placeholder.com">
+              <ng-container *ngIf="book.items[0].volumeInfo.imageLinks; then hasPic; else hasNoPic"></ng-container>
+              <ng-template #hasPic>
+                <img src={{book.items[0].volumeInfo.imageLinks.thumbnail}}>
+              </ng-template>
+              <ng-template #hasNoPic>
+                <img src="../../assets/images/nocover.jpg">
+              </ng-template>
+            </a>
+            <div class="row">
               <div class="col sm12 m9">
                 <br>
-                  <a (click)='findLenders(bookIsbn)' class="waves-effect waves-light btn-large">Exchange!</a>
+                <a (click)='findLenders(bookIsbn)' class="waves-effect waves-light btn-large">Exchange!</a>
               </div>
-          </div>
-         
-        </div>
-        <div class="col sm12 m8">
-        <p><strong class="header">Title:</strong> {{book.items[0].volumeInfo.title}}</p>
-        <p><strong class="header">Author:</strong>{{book.items[0].volumeInfo.authors}}</p>
-        <p><strong class="header">Summary:</strong> {{book.items[0].volumeInfo.description}}</p>
-        <p><strong class="header">Page Count:</strong> {{book.items[0].volumeInfo.pageCount}}</p>
-        <p><strong class="header">Published:</strong> {{book.items[0].volumeInfo.publishedDate}}</p>
-        <p><strong class="header">ISBN(s):</strong> {{bookIsbn}}</p>
+            </div>
 
+          </div>
+          <div class="col sm12 m8">
+            <p>
+              <strong class="header">Title:</strong> {{book.items[0].volumeInfo.title}}</p>
+            <p>
+              <strong class="header">Author:</strong>{{book.items[0].volumeInfo.authors}}</p>
+            <p>
+              <strong class="header">Summary:</strong> {{book.items[0].volumeInfo.description}}</p>
+            <p>
+              <strong class="header">Page Count:</strong> {{book.items[0].volumeInfo.pageCount}}</p>
+            <p>
+              <strong class="header">Published:</strong> {{book.items[0].volumeInfo.publishedDate}}</p>
+            <p>
+              <strong class="header">ISBN(s):</strong> {{bookIsbn}}</p>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col sm12 m6 offset-m3">
+    <div class="card blue-grey lighten-5">
+      <div class="card-content">
+        <div class="row">
+          <div class="col sm12 m3">
+            <div *ngIf="lenders">
+              <div *ngFor="let lenderdetails of lenders">
+                <h1 (click)="startDeal(lenderdetails.email, bookIsbn, details.email)" class="afterExchange">{{lenderdetails.name}}</h1>
+                <h4 (click)="startDeal(lenderdetails.email, bookIsbn, details.email)" class="afterExchange">{{lenderdetails.email}}</h4>
+                <h4 (click)="startDeal(lenderdetails.email, bookIsbn, details.email)" class="afterExchange">{{lenderdetails._id}}</h4>
+                <br>
+                <button class="btn waves-effect waves-light" type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
- 
-  </div>
-
-</div>
-
-</div>
-</div>
-
-<div *ngIf="lenders">
-  <div *ngFor="let lenderdetails of lenders">
-    <h1 (click)="startDeal(lenderdetails.email, bookIsbn, details.email)">{{lenderdetails.name}}</h1>
+    </div>
   </div>
 </div>

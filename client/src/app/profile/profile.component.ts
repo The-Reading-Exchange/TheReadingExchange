@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+}
+
 //   getUserBooks(user) {
 //     console.log('starting the call from init');
 //     this.searchService.getUserBooks(user)
