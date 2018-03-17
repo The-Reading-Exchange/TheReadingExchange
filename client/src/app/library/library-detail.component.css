@@ -1,15 +1,14 @@
-
 /* .card.horizontal{
   width: 97% !important;
 } */
 
 h1 {
-  text-align: center;
-  color: white;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
 }
 
-.card{
-  height: auto;
-  border-radius: 15px;
+.card {
+    height: auto;
+    border-radius: 15px;
 }
-
