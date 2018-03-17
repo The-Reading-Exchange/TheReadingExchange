@@ -1,50 +1,60 @@
-h1{
+h1 {
     text-align: center;
     text-shadow: 2px 2px 4px #000000;
-
 }
 
-#add-book{
+#add-book {
     text-shadow: 2px 2px 4px #000000;
-
 }
 
-.card-action{
+.card-action {
     text-align: center;
 }
 
-.card-title{
+.card-title {
     text-align: center;
 }
 
-.collapsible-header{
+/* .collapsible-header {
     height: 60px;
     font-size: 20px;
     padding: 15px;
+} */
+
+td {
+    height: 60px;
 }
 
-td{
-    height:60px;
-}
-
-h1{
+h1 {
     color: white;
 }
 
-.card{
+.card {
     border-style: double;
     border-width: 4px;
 }
 
-a{
-    color:#e57373;
+a {
+    color: #e57373;
 }
 
-.collapsible-body{
+/* .collapsible-body {
     background-color: white;
-}
+} */
 
-button{
+button {
     background-color: #e57373;
 }
 
+.container1 {
+    background-color: white;
+    padding: 20px;
+    border-style: double;
+    border-width: 4px;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+} 

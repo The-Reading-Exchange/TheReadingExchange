@@ -1,4 +1,6 @@
-.card.horizontal {
+
+.card.horizontal{
+
   width: 97% !important;
 }
 
@@ -53,6 +55,7 @@
   width: 26em;
 }
 h1 {
+
   text-align: center;
   color: white;
   text-shadow: 2px 2px 4px #000000;
@@ -62,3 +65,4 @@ h1 {
   height: auto;
   border-radius: 15px;
 }
+
