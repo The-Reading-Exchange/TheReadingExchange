@@ -65,11 +65,11 @@
           <div class="col sm12 m3">
             <div *ngIf="lenders">
               <div *ngFor="let lenderdetails of lenders" id="afterExchange">
-                <div id="infoDetail"(click)="startDeal(lenderdetails.email, bookIsbn, details.email)"><p class="label">Name:</p>{{lenderdetails.name}}</div>
-                <div id="infoDetail" (click)="startDeal(lenderdetails.email, bookIsbn, details.email)"><p class="label">Email:</p>{{lenderdetails.email}}</div>
-                <div (click)="startDeal(lenderdetails.email, bookIsbn, details.email)"><p class="label">Book ID:</p>{{lenderdetails._id}}</div>
+                <div><p class="label">Name:</p>{{lenderdetails.name}}</div>
+                <div><p class="label">Email:</p>{{lenderdetails.email}}</div>
+                <div><p class="label">Book ID:</p>{{lenderdetails._id}}</div>
                 <br>
-                <button class="btn waves-effect waves-light" type="submit">Submit</button>
+                <button (click)="startDeal(lenderdetails.email, bookIsbn, details.email)" class="btn waves-effect waves-light" type="submit">Submit</button>
               </div>
             </div>
           </div>
