@@ -32,12 +32,14 @@ module.exports.getProfileBooks = function(req, res) {
     });
   }
 
-  module.exports.startDeal = function(req, res) {
-    console.log(req.body, 'this is the deal info in the database call ')
-    return Deal.create({borrower: req.body.borrowerEmail, lender: req.body.lenderEmail, status: req.body.status},
-        {upsert: true, new: true})
-    .exec(function(err, response) {
-      db.User.Update({ email: req.body.lenderEmail, }, {$push: {deals :response._id }}, { upsert: true, new: true });
-      db.User.Update({ email: req.body.borrowerEmail, }, {$push: {deals :response._id }}, {upsert: true, new: true });
+module.exports.startDeal = function(req, res) {
+  // console.log(req.body, 'this is the deal info in the database call ');
+  
+    Deal.create({borrower: req.body.borrowerEmail, lender: req.body.lenderEmail, status: req.body.status, isbn: req.body.isbn})
+        .then(function(dbDeal) {
+      console.log(dbDeal, 'dbdeal');
+      User.findOneAndUpdate({ email: dbDeal.lender }, {$push: {deals :dbDeal._id }}, { new: true }).exec();
+      User.findOneAndUpdate({ email: dbDeal.borrower }, {$push: {deals :dbDeal._id }}, { new: true }).exec();
     });
-}
+    // User.findOneAndUpdate({ email: request.body.borrower }, {$push: {deals :request.body._id }}, { new: true });
+  }
