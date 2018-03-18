@@ -10,6 +10,7 @@ import { SearchService } from '../search.service';
 export class ProfileComponent implements OnInit {
 
   profileBooks;
+  deals;
   details: UserDetails;
 
   constructor(private searchService: SearchService, private auth: AuthenticationService) {}
@@ -18,6 +19,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.auth.profile().subscribe(user => {
       this.details = user;
+      console.log(this.details);
     }, (err) => {
       console.error(err);
     });
@@ -39,4 +41,3 @@ export class ProfileComponent implements OnInit {
 //     );
 //   }
 // }
-}

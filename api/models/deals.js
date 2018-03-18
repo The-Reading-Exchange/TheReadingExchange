@@ -8,7 +8,6 @@ var dealSchema = new mongoose.Schema({
     // The headline is the article associate with the note
   _Id: {
     type: Schema.Types.ObjectId,
-    ref: "User"
   },
   // date is just a string
   date: {
@@ -19,7 +18,8 @@ var dealSchema = new mongoose.Schema({
   borrower: String,
   lender: String,
   book: Object,
-  status: String
+  status: String,
+  isbn: String
 });
 
 // Create the Note model using the noteSchema

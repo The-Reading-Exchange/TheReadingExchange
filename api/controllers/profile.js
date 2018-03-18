@@ -10,7 +10,7 @@ module.exports.profileRead = function(req, res) {
   } else {
     User
       .findById(req.payload._id)
-      .populate('deal')
+      .populate('deals')
       .exec(function(err, user) {
         res.status(200).json(user);
       });
