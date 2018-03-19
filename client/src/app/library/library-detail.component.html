@@ -19,7 +19,7 @@
             <div class="row">
               <div class="col sm12 m9">
                 <br>
-                <a (click)='findLenders(bookIsbn)' class="waves-effect waves-light btn-large">Exchange!</a>
+                <a (click)='findLenders(bookIsbn)' class="waves-effect waves-light btn-large" ng-click="showme=true">Exchange!</a>
               </div>
             </div>
 
@@ -49,32 +49,48 @@
 </div>
 
 
+<!-- <div ng-app=""> -->
+<!-- <h1>Ng-show & ng-hide</h1> -->
+<!-- <p class="description">Click on the "show"-link to see the content.</p>
+  <button href="" ng-click="showme=true">Show</button>
+  <button ng-click="showme=false">Hide</button>
+
+  <div class="wrapper">
+    <p ng-hide="showme">It will appear here!</p>
+    <h2 ng-show="showme">This is mah content, yo!</h2>
+  </div>
+
+</div> -->
 
 
 
 
 
+<div *ngIf="lenders" class="appearDiv">
+  <div *ngFor="let lenderdetails of lenders" id="afterExchange">
 
+    <div class="row" ng-show="showme">
+      <div class="col sm12 m6 offset-m3">
+        <div class="card blue-grey lighten-5">
+          <div class="card-content">
+            <div class="row">
+              <div class="col sm12 m3" id="appearContent">
 
-
-<div class="row">
-  <div class="col sm12 m6 offset-m3">
-    <div class="card blue-grey lighten-5">
-      <div class="card-content">
-        <div class="row">
-          <div class="col sm12 m3">
-            <div *ngIf="lenders">
-              <div *ngFor="let lenderdetails of lenders" id="afterExchange">
-                <div><p class="label">Name:</p>{{lenderdetails.name}}</div>
-                <div><p class="label">Email:</p>{{lenderdetails.email}}</div>
-                <div><p class="label">Book ID:</p>{{lenderdetails._id}}</div>
+                <div>
+                  <p class="label">Name:</p>{{lenderdetails.name}}</div>
+                <div>
+                  <p class="label">Email:</p>{{lenderdetails.email}}</div>
+                <div>
+                  <p class="label">Book ID:</p>{{lenderdetails._id}}</div>
                 <br>
                 <button (click)="startDeal(lenderdetails.email, bookIsbn, details.email)" class="btn waves-effect waves-light" type="submit">Submit</button>
               </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
-  </div>
+</div>
