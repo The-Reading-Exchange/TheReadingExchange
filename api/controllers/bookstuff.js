@@ -35,13 +35,12 @@ module.exports.getProfileBooks = function(req, res) {
 module.exports.startDeal = function(req, res) {
   // console.log(req.body, 'this is the deal info in the database call ');
   
-    Deal.create({borrower: req.body.borrowerEmail, lender: req.body.lenderEmail, status: req.body.status, isbn: req.body.isbn, lenderName: lenderName, lenderAddress: lenderAddress})
+    Deal.create({borrower: req.body.borrowerEmail, lender: req.body.lenderEmail, status: req.body.status, isbn: req.body.isbn, lenderName: req.body.lenderName, lenderAddress: req.body.lenderAddress})
         .then(function(dbDeal) {
       console.log(dbDeal, 'dbdeal');
       User.findOneAndUpdate({ email: dbDeal.lender }, {$push: {deals :dbDeal._id }}, { new: true }).exec();
       User.findOneAndUpdate({ email: dbDeal.borrower }, {$push: {deals :dbDeal._id }}, { new: true }).exec();
     });
-    // User.findOneAndUpdate({ email: request.body.borrower }, {$push: {deals :request.body._id }}, { new: true });
   }
 
 module.exports.acceptDeal = function(req, res) {

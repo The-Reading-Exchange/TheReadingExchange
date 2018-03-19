@@ -67,6 +67,7 @@ export class SearchService {
         'status': 'RequestedToBorrow',
         'lenderName': lendername,
         'lenderAddress': lenderaddress};
+        console.log(dealInfo);
         return this.http.post(`/api/startdeal`, dealInfo);
     }
     acceptDeal(dealNumber) {
