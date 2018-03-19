@@ -14,6 +14,19 @@
     </div>
   </div>
 </div>
+<div *ngIf="details.address == 'none'"  id='address-alert'>
+    <h3>You do not currently have an address in your account!  Please add an address to make any exchanges.</h3>
+    <form #f="ngForm" (ngSubmit)="updateAddress(f, details.email)" novalidate>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea name="addressField" ngModel class="materialize-textarea"></textarea>
+            <label for="addressField">Address</label>
+          </div>
+        </div>
+
+        <button class="btn waves-effect waves-light" type="submit">Submit</button>
+      </form>
+</div>
 
 
   <!-- <br> -->

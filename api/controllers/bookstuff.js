@@ -35,7 +35,7 @@ module.exports.getProfileBooks = function(req, res) {
 module.exports.startDeal = function(req, res) {
   // console.log(req.body, 'this is the deal info in the database call ');
   
-    Deal.create({borrower: req.body.borrowerEmail, lender: req.body.lenderEmail, status: req.body.status, isbn: req.body.isbn})
+    Deal.create({borrower: req.body.borrowerEmail, lender: req.body.lenderEmail, status: req.body.status, isbn: req.body.isbn, lenderName: lenderName, lenderAddress: lenderAddress})
         .then(function(dbDeal) {
       console.log(dbDeal, 'dbdeal');
       User.findOneAndUpdate({ email: dbDeal.lender }, {$push: {deals :dbDeal._id }}, { new: true }).exec();
@@ -54,9 +54,10 @@ module.exports.sendPayment = function(req, res){
 }
 module.exports.shipBook = function(req, res) {
   Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'shipBookBack' }}, { new: true }).exec();
-
 }
 module.exports.shipBookBack = function(req, res) {
   Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'Done' }}, { new: true }).exec();
-
+}
+module.exports.updateAddress = function(req, res) {
+  User.findOneAndUpdate({email: req.body.email}, { $set: { address: req.body.address }}, { new: true }).exec();
 }
