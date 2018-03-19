@@ -25,19 +25,51 @@ export class ProfileComponent implements OnInit {
     });
   }
   acceptDeal(dealNumber) {
-    this.searchService.acceptDeal(dealNumber);
+    this.searchService.acceptDeal(dealNumber)
+    .subscribe(
+      res => {
+        console.log(res, 'we are done');
+      },
+      err => {
+        console.log('Error occured');
+      }
+    );
  }
 
  sendPayment(dealNumber) {
-  this.searchService.sendPayment(dealNumber);
+  this.searchService.sendPayment(dealNumber)
+  .subscribe(
+    res => {
+      console.log(res, 'we are done');
+    },
+    err => {
+      console.log('Error occured');
+    }
+  );
 }
 
   shipBook(dealNumber) {
-    this.searchService.shipBook(dealNumber);
+    this.searchService.shipBook(dealNumber)
+    .subscribe(
+      res => {
+        console.log(res, 'we are done');
+      },
+      err => {
+        console.log('Error occured');
+      }
+    );
  }
 
   shipBookBack(dealNumber) {
-    this.searchService.shipBookBack(dealNumber);
+    this.searchService.shipBookBack(dealNumber)
+    .subscribe(
+      res => {
+        console.log(res, 'we are done');
+      },
+      err => {
+        console.log('Error occured');
+      }
+    );
  }
 }
 

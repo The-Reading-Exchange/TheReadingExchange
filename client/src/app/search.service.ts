@@ -73,6 +73,7 @@ export class SearchService {
      sendPayment(dealNumber) {
         // tslint:disable-next-line:prefer-const
         let dealNumberService = {dealNumber: dealNumber};
+        console.log(dealNumberService, 'the deal object being sent in the send payment service');
         return this.http.post(`/api/sendpayment`, dealNumberService);
      }
       shipBook(dealNumber) {
