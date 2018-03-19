@@ -1,6 +1,4 @@
-
-.card.horizontal{
-
+.card.horizontal {
   width: 97% !important;
 }
 
@@ -55,7 +53,6 @@
   width: 26em;
 }
 h1 {
-
   text-align: center;
   color: white;
   text-shadow: 2px 2px 4px #000000;
@@ -66,3 +63,18 @@ h1 {
   border-radius: 15px;
 }
 
+/* [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+} */
+
+.appearDiv {
+  position: relative;
+  left: -10em;
+}
+
+#appearContent {
+  width: 25%;
+  position: relative;
+  left: 4em;
+  font-size: 2em;
+}
