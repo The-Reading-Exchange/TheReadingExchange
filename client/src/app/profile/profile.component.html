@@ -62,7 +62,7 @@
                   <ng-container *ngFor="let aDeal of details.deals">
                     <ng-container *ngFor='let aIdentifier of book.industryIdentifiers'>
                       <button *ngIf='aDeal.isbn == aIdentifier.identifier && aDeal.status == "RequestedToBorrow" && aDeal.lender == details.email' (click)='acceptDeal(aDeal._id)' class="btn waves-effect waves-light" type="submit">Accept</button>
-                      <button *ngIf='aDeal.isbn == aIdentifier.identifier && aDeal.status == "needToShip" && aDeal.lender == details.email' (click)='shipBook(aDeal._id)' class="btn waves-effect waves-light" type="submit">Accept</button>
+                      <button *ngIf='aDeal.isbn == aIdentifier.identifier && aDeal.status == "shipBook" && aDeal.lender == details.email' (click)='shipBook(aDeal._id)' class="btn waves-effect waves-light" type="submit">Accept</button>
                     </ng-container>
                   </ng-container>
                 </td>
@@ -222,21 +222,21 @@
                 <td>
                   <div>
                   <div>
-                    <p>{{aBorrowerDeal.isbn}}</p>
+                    <p>{{aBorrowDeal.isbn}}</p>
                   </div>
                 </div></td>
                 <td>
                   <div>
                     <div>
-                      <p>{{aBorrowerDeal.lender}}</p>
+                      <p>{{aBorrowDeal.lender}}</p>
                     </div>
                   </div>
                 </td>
-                <td>aBorrowerDeal.status</td>
-                <td>aBorrowerDeal.date</td>
+                <td>{{aBorrowDeal.status}}</td>
+                <td>{{aBorrowDeal.date}}</td>
                 <td>
-                      <button *ngIf='aBorrowDeal.status == "sendPayment" && aBorrowDeal.borrower == details.email' (click)='sendPayment(aBorrowerDeal._id)' class="btn waves-effect waves-light" type="submit">Send Payment</button>
-                      <button *ngIf='aBorrowDeal.status == "paymentSent" && aBorrowDeal.borrower == details.email' (click)='shipBookBack(aBorrowerDeal._id)' class="btn waves-effect waves-light" type="submit">Send Payment</button>
+                      <button *ngIf='aBorrowDeal.status == "sendPayment" && aBorrowDeal.borrower == details.email' (click)='sendPayment(aBorrowDeal._id)' class="btn waves-effect waves-light" type="submit">Send Payment</button>
+                      <button *ngIf='aBorrowDeal.status == "shipBookBack" && aBorrowDeal.borrower == details.email' (click)='shipBookBack(aBorrowDeal._id)' class="btn waves-effect waves-light" type="submit">Ship Back</button>
                 </td>
               </tr>
             </ng-container>

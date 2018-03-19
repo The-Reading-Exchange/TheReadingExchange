@@ -46,17 +46,17 @@ module.exports.startDeal = function(req, res) {
 
 module.exports.acceptDeal = function(req, res) {
   console.log(req.body);
-  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'sendPayment' }}, { new: true }, function (err, deal) {
-    if (err) return (err);
-    res.send(deal);
-  });
+  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'sendPayment' }}, { new: true }).exec();
 }
-module.exports.sendPayment = function(){
 
+module.exports.sendPayment = function(req, res){
+  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'shipBook' }}, { new: true }).exec();
 }
 module.exports.shipBook = function(req, res) {
+  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'shipBookBack' }}, { new: true }).exec();
 
 }
 module.exports.shipBookBack = function(req, res) {
+  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'Done' }}, { new: true }).exec();
 
 }
