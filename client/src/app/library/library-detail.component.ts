@@ -59,8 +59,8 @@ export class LibraryDetailComponent implements OnInit {
     );
   }
 
-  startDeal(emailToDB, isbnToDB, borrowerEmail) {
-    this.searchService.startDeal(emailToDB, isbnToDB, borrowerEmail)
+  startDeal(emailToDB, isbnToDB, borrowerEmail, lendername, lenderaddress) {
+    this.searchService.startDeal(emailToDB, isbnToDB, borrowerEmail, lendername, lenderaddress)
     .subscribe(
       res => {
         console.log(res, 'we are done');

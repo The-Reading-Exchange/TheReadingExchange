@@ -19,7 +19,11 @@ var userSchema = new mongoose.Schema({
   },
   hash: String,
   salt: String,
-  deals: [{ type: Schema.Types.ObjectId, ref: 'Deal' }]
+  deals: [{ type: Schema.Types.ObjectId, ref: 'Deal' }],
+  address: {
+    type: String,
+    default: "none"
+  }
 });
 
 userSchema.methods.setPassword = function(password){

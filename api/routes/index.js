@@ -28,6 +28,8 @@ router.post('/acceptdeal', ctrlBooks.acceptDeal);
 router.post('/sendpayment', ctrlBooks.sendPayment)
 router.post('/shipbook', ctrlBooks.shipBook);
 router.post('/shipbookback', ctrlBooks.shipBookBack);
+router.post('/updateaddress', ctrlBooks.updateAddress);
+
 
 
 module.exports = router;

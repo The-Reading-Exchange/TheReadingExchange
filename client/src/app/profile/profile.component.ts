@@ -71,6 +71,19 @@ export class ProfileComponent implements OnInit {
       }
     );
  }
+
+ updateAddress(address, useremail) {
+   console.log(address);
+   this.searchService.updateAddress(address.form.value.addressField, useremail)
+   .subscribe(
+    res => {
+      console.log(res, 'we are done');
+    },
+    err => {
+      console.log('Error occured');
+    }
+  );
+}
 }
 
 //   getUserBooks(user) {

@@ -59,9 +59,14 @@ export class SearchService {
         return this.http.get(`api/getlenders/${isbn}`);
     }
 
-    startDeal(emailToDB, isbnToDB, borrowerEmail) {
+    startDeal(emailToDB, isbnToDB, borrowerEmail, lendername, lenderaddress) {
         // tslint:disable-next-line:prefer-const
-        let dealInfo = {'lenderEmail': emailToDB, 'isbn': isbnToDB, 'borrowerEmail': borrowerEmail, 'status': 'RequestedToBorrow'};
+        let dealInfo = {'lenderEmail': emailToDB,
+        'isbn': isbnToDB,
+        'borrowerEmail': borrowerEmail,
+        'status': 'RequestedToBorrow',
+        'lenderName': lendername,
+        'lenderAddress': lenderaddress};
         return this.http.post(`/api/startdeal`, dealInfo);
     }
     acceptDeal(dealNumber) {
@@ -85,6 +90,13 @@ export class SearchService {
         // tslint:disable-next-line:prefer-const
         let dealNumberService = {dealNumber: dealNumber};
         return this.http.post(`/api/shipbookback`, dealNumberService);
+     }
+
+     updateAddress(userAddress, userEmail) {
+         // tslint:disable-next-line:prefer-const
+         let updateAddressObject = {address: userAddress, email: userEmail};
+         console.log(updateAddressObject, 'this is the update address object');
+         return this.http.post(`/api/updateaddress`, updateAddressObject);
      }
 
 }
