@@ -24,7 +24,21 @@ export class ProfileComponent implements OnInit {
       console.error(err);
     });
   }
+  acceptDeal(dealNumber) {
+    this.searchService.acceptDeal(dealNumber);
+ }
 
+ sendPayment(dealNumber) {
+  this.searchService.sendPayment(dealNumber);
+}
+
+  shipBook(dealNumber) {
+    this.searchService.shipBook(dealNumber);
+ }
+
+  shipBookBack(dealNumber) {
+    this.searchService.shipBookBack(dealNumber);
+ }
 }
 
 //   getUserBooks(user) {

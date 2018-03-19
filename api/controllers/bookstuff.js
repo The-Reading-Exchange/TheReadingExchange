@@ -43,3 +43,20 @@ module.exports.startDeal = function(req, res) {
     });
     // User.findOneAndUpdate({ email: request.body.borrower }, {$push: {deals :request.body._id }}, { new: true });
   }
+
+module.exports.acceptDeal = function(req, res) {
+  console.log(req.body);
+  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'sendPayment' }}, { new: true }, function (err, deal) {
+    if (err) return (err);
+    res.send(deal);
+  });
+}
+module.exports.sendPayment = function(){
+
+}
+module.exports.shipBook = function(req, res) {
+
+}
+module.exports.shipBookBack = function(req, res) {
+
+}

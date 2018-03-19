@@ -64,4 +64,26 @@ export class SearchService {
         let dealInfo = {'lenderEmail': emailToDB, 'isbn': isbnToDB, 'borrowerEmail': borrowerEmail, 'status': 'RequestedToBorrow'};
         return this.http.post(`/api/startdeal`, dealInfo);
     }
+    acceptDeal(dealNumber) {
+        // tslint:disable-next-line:prefer-const
+        let dealNumberService = {dealNumber: dealNumber};
+        console.log(dealNumberService, 'the deal object being sent in the accept service');
+        return this.http.post(`/api/acceptdeal`, dealNumberService);
+     }
+     sendPayment(dealNumber) {
+        // tslint:disable-next-line:prefer-const
+        let dealNumberService = {dealNumber: dealNumber};
+        return this.http.post(`/api/sendpayment`, dealNumberService);
+     }
+      shipBook(dealNumber) {
+        // tslint:disable-next-line:prefer-const
+        let dealNumberService = {dealNumber: dealNumber};
+        return this.http.post(`/api/shipbook`, dealNumberService);
+     }
+      shipBookBack(dealNumber) {
+        // tslint:disable-next-line:prefer-const
+        let dealNumberService = {dealNumber: dealNumber};
+        return this.http.post(`/api/shipbookback`, dealNumberService);
+     }
+
 }
