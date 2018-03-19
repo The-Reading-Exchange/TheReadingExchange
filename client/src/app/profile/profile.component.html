@@ -20,7 +20,7 @@
   
   <!-- <ul class="collapsible popout" data-collapsible="accordion"> -->
     <!-- <li> -->
-    <h2>My Books</h2>
+    <h2>My  Books</h2>
       <div class="container1">
       <div class="myBooks" ng-click="myFunc()">
        </div>
@@ -36,12 +36,12 @@
                 <th>Author</th>
                 <th>Status</th>
                 <th>Date Requested</th>
-                <th>Accept</th>
+                <th></th>
               </tr>
             </thead>
   
             <tbody *ngIf="details.books">
-              <tr *ngFor="let book of details.books">
+              <tr *ngFor='let book of details.books'>
                 <!-- <td>{{bookIsbn}}</td> -->
                 <td>
                   <div>
@@ -59,8 +59,12 @@
                 <td>Status</td>
                 <td>Date Requested</td>
                 <td>
-                  <button class="btn waves-effect waves-light" type="submit" name="action">Accept</button>
-  
+                  <ng-container *ngFor="let aDeal of details.deals">
+                    <ng-container *ngFor='let aIdentifier of book.industryIdentifiers'>
+                      <button *ngIf='aDeal.isbn == aIdentifier.identifier && aDeal.status == "RequestedToBorrow" && aDeal.lender == details.email' (click)='acceptDeal(aDeal._id)' class="btn waves-effect waves-light" type="submit">Accept</button>
+                      <button *ngIf='aDeal.isbn == aIdentifier.identifier && aDeal.status == "needToShip" && aDeal.lender == details.email' (click)='shipBook(aDeal._id)' class="btn waves-effect waves-light" type="submit">Accept</button>
+                    </ng-container>
+                  </ng-container>
                 </td>
               </tr> 
             </tbody>
@@ -68,6 +72,10 @@
   
         </span>
       </div>
+
+      
+
+      
     <!-- </li> -->
     <!-- <li>
       <div class="collapsible-header">
@@ -185,6 +193,61 @@
     </li> -->
   <!-- </ul> -->
   </div>
+
+
+  <h2>My Borrowed Books</h2>
+      <div class="container1">
+      <div class="myBooks" ng-click="myFunc()">
+       </div>
+      
+      <div >
+
+        <span>
+          <table class="bordered">
+            <thead>
+              <tr>
+                <!-- <th>ID</th> -->
+                <th>ISBN</th>
+                <th>Lender</th>
+                <th>Status</th>
+                <th>Date Requested</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let aBorrowDeal of details.deals">
+              <ng-container *ngIf="aBorrowDeal.borrower == details.email">
+              <tr>
+                <!-- <td>{{bookIsbn}}</td> -->
+                <td>
+                  <div>
+                  <div>
+                    <p>{{aBorrowerDeal.isbn}}</p>
+                  </div>
+                </div></td>
+                <td>
+                  <div>
+                    <div>
+                      <p>{{aBorrowerDeal.lender}}</p>
+                    </div>
+                  </div>
+                </td>
+                <td>aBorrowerDeal.status</td>
+                <td>aBorrowerDeal.date</td>
+                <td>
+                      <button *ngIf='aBorrowDeal.status == "sendPayment" && aBorrowDeal.borrower == details.email' (click)='sendPayment(aBorrowerDeal._id)' class="btn waves-effect waves-light" type="submit">Send Payment</button>
+                      <button *ngIf='aBorrowDeal.status == "paymentSent" && aBorrowDeal.borrower == details.email' (click)='shipBookBack(aBorrowerDeal._id)' class="btn waves-effect waves-light" type="submit">Send Payment</button>
+                </td>
+              </tr>
+            </ng-container>
+          </ng-container>
+            </tbody>
+          </table>
+  
+        </span>
+      </div>
+      </div>
+
 
   </div>
 

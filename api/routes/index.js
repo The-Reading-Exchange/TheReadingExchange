@@ -24,6 +24,10 @@ router.post('/login', ctrlAuth.login);
 //other stuff
 router.post('/add-book', ctrlBooks.saveBook);
 router.post('/startdeal', ctrlBooks.startDeal);
+router.post('/acceptdeal', ctrlBooks.acceptDeal);
+router.post('/sendpayment', ctrlBooks.sendPayment)
+router.post('/shipbook', ctrlBooks.shipBook);
+router.post('/shipbookback', ctrlBooks.shipBookBack);
 
 
 module.exports = router;
