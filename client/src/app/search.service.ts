@@ -59,14 +59,15 @@ export class SearchService {
         return this.http.get(`api/getlenders/${isbn}`);
     }
 
-    startDeal(emailToDB, isbnToDB, borrowerEmail, lendername, lenderaddress) {
+    startDeal(emailToDB, isbnToDB, borrowerEmail, lendername, lenderaddress, borroweraddress) {
         // tslint:disable-next-line:prefer-const
         let dealInfo = {'lenderEmail': emailToDB,
         'isbn': isbnToDB,
         'borrowerEmail': borrowerEmail,
         'status': 'RequestedToBorrow',
         'lenderName': lendername,
-        'lenderAddress': lenderaddress};
+        'lenderAddress': lenderaddress,
+        'borrowerAddress': borroweraddress};
         console.log(dealInfo);
         return this.http.post(`/api/startdeal`, dealInfo);
     }
