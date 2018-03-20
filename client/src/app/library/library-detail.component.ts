@@ -60,14 +60,6 @@ export class LibraryDetailComponent implements OnInit {
   }
 
   startDeal(emailToDB, isbnToDB, borrowerEmail, lendername, lenderaddress, borroweraddress) {
-    this.searchService.startDeal(emailToDB, isbnToDB, borrowerEmail, lendername, lenderaddress, borroweraddress)
-    .subscribe(
-      res => {
-        console.log(res, 'we are done');
-      },
-      err => {
-        console.log('Error occured');
-      }
-    );
+    this.searchService.startDeal(emailToDB, isbnToDB, borrowerEmail, lendername, lenderaddress, borroweraddress);
   }
 }

@@ -38,25 +38,39 @@ module.exports.startDeal = function(req, res) {
     Deal.create({borrower: req.body.borrowerEmail, lender: req.body.lenderEmail, status: req.body.status, isbn: req.body.isbn, lenderName: req.body.lenderName, lenderAddress: req.body.lenderAddress, borrowerAddress: req.body.borrowerAddress})
         .then(function(dbDeal) {
       console.log(dbDeal, 'dbdeal');
-      User.findOneAndUpdate({ email: dbDeal.lender }, {$push: {deals :dbDeal._id }}, { new: true }).exec();
-      User.findOneAndUpdate({ email: dbDeal.borrower }, {$push: {deals :dbDeal._id }}, { new: true }).exec();
+      User.findOneAndUpdate({ email: dbDeal.lender }, {$push: {deals :dbDeal._id }}, { new: true });
+      User.findOneAndUpdate({ email: dbDeal.borrower }, {$push: {deals :dbDeal._id }}, { new: true });
     });
   }
 
 module.exports.acceptDeal = function(req, res) {
-  console.log(req.body);
-  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'sendPayment' }}, { new: true }).exec();
+  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'sendPayment' }}, { new: true }, function (err, theresponse) {
+    if (err) return (err);
+    res.send(theresponse);
+  });
 }
 
 module.exports.sendPayment = function(req, res){
-  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'shipBook' }}, { new: true }).exec();
+  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'shipBook' }}, { new: true }, function (err, theresponse) {
+    if (err) return (err);
+    res.send(theresponse);
+  });
 }
 module.exports.shipBook = function(req, res) {
-  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'shipBookBack' }}, { new: true }).exec();
+  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'shipBookBack' }}, { new: true }, function (err, theresponse) {
+    if (err) return (err);
+    res.send(theresponse);
+  });
 }
 module.exports.shipBookBack = function(req, res) {
-  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'Done' }}, { new: true }).exec();
+  Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'Done' }}, { new: true }, function (err, theresponse) {
+    if (err) return (err);
+    res.send(theresponse);
+  });
 }
 module.exports.updateAddress = function(req, res) {
-  User.findOneAndUpdate({email: req.body.email}, { $set: { address: req.body.address }}, { new: true }).exec();
+  User.findOneAndUpdate({email: req.body.email}, { $set: { address: req.body.address }}, { new: true }, function (err, theresponse) {
+    if (err) return (err);
+    res.send(theresponse);
+  });
 }

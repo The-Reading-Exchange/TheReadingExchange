@@ -43,6 +43,7 @@ export class SearchService {
         .subscribe(
             res => {
               console.log(res, 'after service');
+              this.router.navigateByUrl('/profile');
             },
             err => {
               console.log('Error occured');
@@ -69,36 +70,84 @@ export class SearchService {
         'lenderAddress': lenderaddress,
         'borrowerAddress': borroweraddress};
         console.log(dealInfo);
-        return this.http.post(`/api/startdeal`, dealInfo);
+        this.http.post(`/api/startdeal`, dealInfo)
+        .subscribe(
+            res => {
+              console.log(res, 'after service');
+            },
+            err => {
+              console.log('Error occured');
+            }
+          );
     }
     acceptDeal(dealNumber) {
         // tslint:disable-next-line:prefer-const
         let dealNumberService = {dealNumber: dealNumber};
         console.log(dealNumberService, 'the deal object being sent in the accept service');
-        return this.http.post(`/api/acceptdeal`, dealNumberService);
+        return this.http.post(`/api/acceptdeal`, dealNumberService)
+        .subscribe(
+            res => {
+              console.log(res, 'after service');
+            },
+            err => {
+              console.log('Error occured');
+            }
+          );
      }
      sendPayment(dealNumber) {
         // tslint:disable-next-line:prefer-const
         let dealNumberService = {dealNumber: dealNumber};
         console.log(dealNumberService, 'the deal object being sent in the send payment service');
-        return this.http.post(`/api/sendpayment`, dealNumberService);
+        return this.http.post(`/api/sendpayment`, dealNumberService)
+        .subscribe(
+            res => {
+              console.log(res, 'after service');
+            },
+            err => {
+              console.log('Error occured');
+            }
+          );
      }
       shipBook(dealNumber) {
         // tslint:disable-next-line:prefer-const
         let dealNumberService = {dealNumber: dealNumber};
-        return this.http.post(`/api/shipbook`, dealNumberService);
+        return this.http.post(`/api/shipbook`, dealNumberService)
+        .subscribe(
+            res => {
+              console.log(res, 'after service');
+            },
+            err => {
+              console.log('Error occured');
+            }
+          );
      }
       shipBookBack(dealNumber) {
         // tslint:disable-next-line:prefer-const
         let dealNumberService = {dealNumber: dealNumber};
-        return this.http.post(`/api/shipbookback`, dealNumberService);
+        return this.http.post(`/api/shipbookback`, dealNumberService)
+        .subscribe(
+            res => {
+              console.log(res, 'after service');
+            },
+            err => {
+              console.log('Error occured');
+            }
+          );
      }
 
      updateAddress(userAddress, userEmail) {
-         // tslint:disable-next-line:prefer-const
-         let updateAddressObject = {address: userAddress, email: userEmail};
-         console.log(updateAddressObject, 'this is the update address object');
-         return this.http.post(`/api/updateaddress`, updateAddressObject);
-     }
+        // tslint:disable-next-line:prefer-const
+        let updateAddressObject = {address: userAddress, email: userEmail};
+        console.log(updateAddressObject, 'this is the update address object');
+        return this.http.post(`/api/updateaddress`, updateAddressObject)
+        .subscribe(
+            res => {
+              console.log(res, 'after service');
+            },
+            err => {
+              console.log('Error occured');
+            }
+          );
+    }
 
 }

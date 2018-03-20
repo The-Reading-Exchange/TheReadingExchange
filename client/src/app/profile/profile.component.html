@@ -86,8 +86,8 @@
                 <td>
                   <ng-container *ngFor="let aDeal of details.deals">
                     <ng-container *ngFor='let aIdentifier of book.industryIdentifiers'>
-                      <button *ngIf='aDeal.isbn == aIdentifier.identifier && aDeal.status == "RequestedToBorrow" && aDeal.lender == details.email' (click)='acceptDeal(aDeal._id)' class="btn waves-effect waves-light" type="submit">Accept Deal</button>
-                      <button *ngIf='aDeal.isbn == aIdentifier.identifier && aDeal.status == "shipBook" && aDeal.lender == details.email' (click)='shipBook(aDeal._id)' class="btn waves-effect waves-light" type="submit">Book Shipped</button>
+                      <a *ngIf='aDeal.isbn == aIdentifier.identifier && aDeal.status == "RequestedToBorrow" && aDeal.lender == details.email' (click)='acceptDeal(aDeal._id)' class="btn waves-effect waves-light" routerLink="/profile">Accept Deal</a>
+                      <a *ngIf='aDeal.isbn == aIdentifier.identifier && aDeal.status == "shipBook" && aDeal.lender == details.email' (click)='shipBook(aDeal._id)' class="btn waves-effect waves-light" routerLink="/profile">Book Shipped</a>
                     </ng-container>
                   </ng-container>
                 </td>
@@ -264,8 +264,8 @@
                 <td>{{aBorrowDeal.lenderAddress}}</td>
                 <td>$9.99</td>
                 <td>
-                      <button *ngIf='aBorrowDeal.status == "sendPayment" && aBorrowDeal.borrower == details.email' (click)='sendPayment(aBorrowDeal._id)' class="btn waves-effect waves-light" type="submit">Sent Payment</button>
-                      <button *ngIf='aBorrowDeal.status == "shipBookBack" && aBorrowDeal.borrower == details.email' (click)='shipBookBack(aBorrowDeal._id)' class="btn waves-effect waves-light" type="submit">Shipped Back</button>
+                <a *ngIf='aBorrowDeal.status == "sendPayment" && aBorrowDeal.borrower == details.email' (click)='sendPayment(aBorrowDeal._id)' class="btn waves-effect waves-light" routerLink="/profile">Sent Payment</a>
+                <a *ngIf='aBorrowDeal.status == "shipBookBack" && aBorrowDeal.borrower == details.email' (click)='shipBookBack(aBorrowDeal._id)' class="btn waves-effect waves-light" routerLink="/profile">Shipped Back</a>
                 </td>
               </tr>
             </ng-container>
@@ -279,8 +279,3 @@
 
 
   </div>
-
-
-<script>
-   $(document).ready(function(){ $('.collapsible').collapsible(); });
-</script>
