@@ -21,7 +21,8 @@ var dealSchema = new mongoose.Schema({
   status: String,
   isbn: String,
   lenderName: String,
-  lenderAddress: String
+  lenderAddress: String,
+  borrowerAddress: String,
 });
 
 // Create the Note model using the noteSchema
