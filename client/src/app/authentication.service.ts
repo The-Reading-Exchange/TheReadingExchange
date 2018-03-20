@@ -10,6 +10,9 @@ export interface UserDetails {
   name: string;
   exp: number;
   iat: number;
+  address: string;
+  books: any;
+  deals: any;
 }
 
 interface TokenResponse {
