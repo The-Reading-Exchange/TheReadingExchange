@@ -5,10 +5,10 @@ var Deal = mongoose.model('Deal');
 
 module.exports.saveBook = function(req, res) {
 
-  User.findOneAndUpdate({'email': req.body.email}, {$push: {'books': req.body.book}}, {upsert: true, new: true})
-  .exec(function(err, response) {
-      res.status(200).json(response);
-    });
+  User.findOneAndUpdate({'email': req.body.email}, {$push: {'books': req.body.book}}, {upsert: true, new: true}, function (err, theresponse) {
+    if (err) return (err);
+    res.send(theresponse);
+  });
 }
 
 module.exports.getLenders = function(req, res) {
@@ -33,15 +33,14 @@ module.exports.getProfileBooks = function(req, res) {
   }
 
 module.exports.startDeal = function(req, res) {
-  // console.log(req.body, 'this is the deal info in the database call ');
-  
-    Deal.create({borrower: req.body.borrowerEmail, lender: req.body.lenderEmail, status: req.body.status, isbn: req.body.isbn, lenderName: req.body.lenderName, lenderAddress: req.body.lenderAddress, borrowerAddress: req.body.borrowerAddress})
-        .then(function(dbDeal) {
-      console.log(dbDeal, 'dbdeal');
-      User.findOneAndUpdate({ email: dbDeal.lender }, {$push: {deals :dbDeal._id }}, { new: true });
-      User.findOneAndUpdate({ email: dbDeal.borrower }, {$push: {deals :dbDeal._id }}, { new: true });
-    });
-  }
+// console.log(req.body, 'this is the deal info in the database call ');
+  Deal.create({borrower: req.body.borrowerEmail, lender: req.body.lenderEmail, status: req.body.status, isbn: req.body.isbn, lenderName: req.body.lenderName, lenderAddress: req.body.lenderAddress, borrowerAddress: req.body.borrowerAddress})
+  .then(function(dbDeal) {
+  console.log(dbDeal, 'dbdeal');
+  User.findOneAndUpdate({ email: dbDeal.lender }, {$push: {deals :dbDeal._id }}, { new: true }).exec();
+  User.findOneAndUpdate({ email: dbDeal.borrower }, {$push: {deals :dbDeal._id }}, { new: true }).exec();
+  });
+}
 
 module.exports.acceptDeal = function(req, res) {
   Deal.findOneAndUpdate({_id: req.body.dealNumber}, { $set: { status: 'sendPayment' }}, { new: true }, function (err, theresponse) {

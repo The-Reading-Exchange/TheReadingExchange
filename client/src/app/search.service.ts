@@ -70,15 +70,7 @@ export class SearchService {
         'lenderAddress': lenderaddress,
         'borrowerAddress': borroweraddress};
         console.log(dealInfo);
-        this.http.post(`/api/startdeal`, dealInfo)
-        .subscribe(
-            res => {
-              console.log(res, 'after service');
-            },
-            err => {
-              console.log('Error occured');
-            }
-          );
+        return this.http.post(`/api/startdeal`, dealInfo);
     }
     acceptDeal(dealNumber) {
         // tslint:disable-next-line:prefer-const
