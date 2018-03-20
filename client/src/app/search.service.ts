@@ -127,19 +127,11 @@ export class SearchService {
           );
      }
 
-     updateAddress(userAddress, userEmail) {
+     updateAddress(userAddress, userEmail): Observable<any> {
         // tslint:disable-next-line:prefer-const
         let updateAddressObject = {address: userAddress, email: userEmail};
         console.log(updateAddressObject, 'this is the update address object');
-        return this.http.post(`/api/updateaddress`, updateAddressObject)
-        .subscribe(
-            res => {
-              console.log(res, 'after service');
-            },
-            err => {
-              console.log('Error occured');
-            }
-          );
+        return this.http.post(`/api/updateaddress`, updateAddressObject);
     }
 
 }

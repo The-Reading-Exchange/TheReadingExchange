@@ -43,7 +43,16 @@ export class ProfileComponent implements OnInit {
 
  updateAddress(address, useremail) {
    console.log(address);
-   return this.searchService.updateAddress(address.form.value.addressField, useremail);
+   return this.searchService.updateAddress(address.form.value.addressField, useremail)
+    .subscribe(
+    res => {
+      console.log(res, 'after service');
+      this.details.address = res.address;
+    },
+    err => {
+      console.log('Error occured');
+    }
+  );
 }
 }
 
