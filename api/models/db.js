@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var gracefulShutdown;
 var dbURI = 'mongodb://localhost/meanAuth';
 if (process.env.NODE_ENV === 'production') {
-  dbURI = process.env.MONGOLAB_URI;
+  dbURI = process.env.MONGODB_URI;
 }
 
 mongoose.set( "debug", true );
