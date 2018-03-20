@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { AuthenticationService, UserDetails } from '../authentication.service';
 import { SearchService } from '../search.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class ProfileComponent implements OnInit {
   deals;
   details: UserDetails;
 
-  constructor(private searchService: SearchService, private auth: AuthenticationService) {}
+  constructor(private searchService: SearchService, private auth: AuthenticationService, private router: Router) {}
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
@@ -25,64 +26,24 @@ export class ProfileComponent implements OnInit {
     });
   }
   acceptDeal(dealNumber) {
-    this.searchService.acceptDeal(dealNumber)
-    .subscribe(
-      res => {
-        console.log(res, 'we are done');
-      },
-      err => {
-        console.log('Error occured');
-      }
-    );
+    return this.searchService.acceptDeal(dealNumber);
  }
 
  sendPayment(dealNumber) {
-  this.searchService.sendPayment(dealNumber)
-  .subscribe(
-    res => {
-      console.log(res, 'we are done');
-    },
-    err => {
-      console.log('Error occured');
-    }
-  );
+  return this.searchService.sendPayment(dealNumber);
 }
 
   shipBook(dealNumber) {
-    this.searchService.shipBook(dealNumber)
-    .subscribe(
-      res => {
-        console.log(res, 'we are done');
-      },
-      err => {
-        console.log('Error occured');
-      }
-    );
+    return this.searchService.shipBook(dealNumber);
  }
 
   shipBookBack(dealNumber) {
-    this.searchService.shipBookBack(dealNumber)
-    .subscribe(
-      res => {
-        console.log(res, 'we are done');
-      },
-      err => {
-        console.log('Error occured');
-      }
-    );
+    return this.searchService.shipBookBack(dealNumber);
  }
 
  updateAddress(address, useremail) {
    console.log(address);
-   this.searchService.updateAddress(address.form.value.addressField, useremail)
-   .subscribe(
-    res => {
-      console.log(res, 'we are done');
-    },
-    err => {
-      console.log('Error occured');
-    }
-  );
+   return this.searchService.updateAddress(address.form.value.addressField, useremail);
 }
 }
 

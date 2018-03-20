@@ -20,7 +20,6 @@ import { SearchService } from './search.service';
 import { AddBookComponent } from './profile/add-book.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'library', component: LibraryComponent },
   { path: 'library-detail/:isbn',  component: LibraryDetailComponent},
@@ -28,7 +27,8 @@ const routes: Routes = [
   { path: 'add-book', component: AddBookComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
